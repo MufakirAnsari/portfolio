@@ -189,13 +189,16 @@
         page-break-before: always;
       }
     }
+      #menu-toggle { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+    #mobile-drawer.hidden { display: none !important; }
+    #mobile-drawer:not(.hidden) { display: block !important; }
   </style>
 </head>
 
 <body class="bg-surface-base font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen relative overflow-x-hidden">
   <canvas id="background-canvas" class="fixed inset-0 pointer-events-none z-0 opacity-40"></canvas>
 
-      <!-- Sticky Terminal Header -->
+        <!-- Sticky Terminal Header -->
   <header class="fixed top-0 left-0 right-0 z-50 bg-surface-raised/95 backdrop-blur-xl border-b border-border-subtle" id="site-header">
     <div class="h-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-2 sm:gap-4">
       <!-- Brand & Telemetry Status -->
@@ -231,14 +234,14 @@
         <a class="hidden 2xl:inline-flex items-center justify-center bg-surface-overlay hover:bg-surface-raised text-text-primary font-label-mono-sm text-[12px] px-3 py-1.5 rounded-DEFAULT transition-colors border border-border-subtle whitespace-nowrap" href="bio.html">
           CV / Bio
         </a>
-        <button aria-label="Toggle navigation menu" aria-expanded="false" class="xl:hidden p-2 text-text-primary hover:bg-surface-overlay active:bg-surface-container rounded-DEFAULT flex items-center justify-center transition-colors" id="menu-toggle">
+        <button aria-label="Toggle navigation menu" aria-expanded="false" class="xl:hidden p-2 text-text-primary hover:bg-surface-overlay active:bg-surface-container rounded-DEFAULT flex items-center justify-center transition-colors" id="menu-toggle" style="touch-action: manipulation; -webkit-tap-highlight-color: transparent;">
           <span class="material-symbols-outlined text-[24px]" id="menu-toggle-icon">menu</span>
         </button>
       </div>
     </div>
 
     <!-- Dedicated Responsive Mobile Drawer -->
-    <div class="hidden xl:hidden border-t border-border-subtle bg-surface-raised/98 backdrop-blur-2xl shadow-2xl overflow-y-auto max-h-[calc(100vh-4rem)]" id="mobile-drawer">
+    <div class="hidden xl:hidden border-t border-border-subtle bg-surface-raised/98 backdrop-blur-md shadow-2xl overflow-y-auto max-h-[calc(100vh-4rem)]" id="mobile-drawer">
       <div class="px-4 py-3 flex flex-col gap-1">
       <a class="mobile-nav-link flex items-center justify-between px-3 py-2.5 rounded-DEFAULT font-label-mono-sm text-[13px] uppercase text-on-surface-variant hover:text-text-primary hover:bg-surface-overlay transition-colors" href="index.html">
         <span>Overview</span>
@@ -290,6 +293,61 @@
         </div>
       </div>
     </div>
+
+    <!-- Instant Mobile Menu Touch Controller -->
+    <script>
+      (function() {
+        var btn = document.getElementById('menu-toggle');
+        var drawer = document.getElementById('mobile-drawer');
+        var icon = document.getElementById('menu-toggle-icon');
+        if (!btn || !drawer) return;
+
+        window.__toggleMobileNav = function(forceClose) {
+          var isOpen = btn.getAttribute('aria-expanded') === 'true';
+          var next = forceClose === true ? false : (forceClose === false ? true : !isOpen);
+          btn.setAttribute('aria-expanded', next ? 'true' : 'false');
+          if (next) {
+            drawer.classList.remove('hidden');
+            if (icon) icon.textContent = 'close';
+          } else {
+            drawer.classList.add('hidden');
+            if (icon) icon.textContent = 'menu';
+          }
+        };
+
+        var lastTouch = 0;
+        btn.addEventListener('touchstart', function(e) {
+          lastTouch = Date.now();
+          e.preventDefault();
+          e.stopPropagation();
+          window.__toggleMobileNav();
+        }, { passive: false });
+
+        btn.addEventListener('click', function(e) {
+          if (Date.now() - lastTouch < 400) {
+            e.preventDefault();
+            return;
+          }
+          e.stopPropagation();
+          window.__toggleMobileNav();
+        });
+
+        drawer.querySelectorAll('a').forEach(function(a) {
+          a.addEventListener('click', function() {
+            window.__toggleMobileNav(true);
+          });
+        });
+
+        document.addEventListener('touchstart', function(e) {
+          if (btn.getAttribute('aria-expanded') === 'true') {
+            var header = document.getElementById('site-header');
+            if (header && !header.contains(e.target)) {
+              window.__toggleMobileNav(true);
+            }
+          }
+        }, { passive: true });
+      })();
+    </script>
   </header>
 
   <main class="w-full pt-16 relative z-10">
@@ -683,6 +741,60 @@
           <p class="font-body-md text-body-md text-text-muted leading-relaxed">
             Peer Reviewer: <em>Engineering Applications of Artificial Intelligence</em> (Elsevier, 43 papers verified), <em>Journal of Pathology Informatics</em> (Elsevier / API), <em>IEEE ICMLA 2026</em>, <em>IEEE ICECCME 2026</em>, and <em>IEEE ACDSA 2027</em>.
           </p>
+        </div>
+      </section>
+
+      <!-- CONFERENCE PRESENTATIONS & SYMPOSIUM TALKS -->
+      <section class="bg-surface-raised p-space-lg rounded-DEFAULT border border-border-subtle shadow-lg flex flex-col gap-space-md" id="presentations">
+        <div class="flex items-center gap-2 border-b border-border-subtle pb-space-sm">
+          <span class="material-symbols-outlined text-primary text-[22px]">record_voice_over</span>
+          <h3 class="font-headline-md text-headline-md text-text-primary font-bold uppercase tracking-wide">
+            Conference Presentations &amp; Symposium Talks
+          </h3>
+        </div>
+
+        <div class="space-y-space-md">
+          <!-- Presentation 1: OTEC 2024 -->
+          <div class="bg-surface-base p-space-md rounded border border-border-subtle flex flex-col gap-1.5">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+              <h4 class="font-headline-md text-[16px] text-text-primary font-bold">
+                From Data to Action: Leveraging Machine Learning/Artificial Intelligence to Guide Proactive Pedestrian and Cyclist Safety Initiatives
+              </h4>
+              <span class="font-label-mono-sm text-label-mono-sm text-primary font-semibold shrink-0">Oct 2024</span>
+            </div>
+            <div class="flex flex-wrap items-center gap-x-2 gap-y-0.5 font-label-mono-sm text-[12px] text-text-dim">
+              <span class="text-secondary font-semibold">OTEC 2024 · Ohio Transportation Engineering Conference</span>
+              <span>·</span>
+              <span class="text-text-muted">Greater Columbus Convention Center · Columbus, Ohio, USA</span>
+            </div>
+            <p class="font-body-md text-body-md text-text-muted leading-relaxed">
+              <strong>Authors:</strong> Rabinson Rai, <strong class="text-text-primary">Mufakir Qamar Ansari</strong>, Abiskar Nepal, Eddie Chou.
+            </p>
+            <p class="font-body-md text-body-md text-text-muted leading-relaxed">
+              Presented state-level machine learning frameworks and predictive spatial safety models developed for the Ohio Department of Transportation (ODOT) to evaluate high-risk road corridors, vulnerable road user (VRU) crash severities, and data-driven infrastructure countermeasure prioritization.
+            </p>
+          </div>
+
+          <!-- Presentation 2: 2023 Resilience and Recovery Summit -->
+          <div class="bg-surface-base p-space-md rounded border border-border-subtle flex flex-col gap-1.5 border-t border-border-subtle pt-space-md">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+              <h4 class="font-headline-md text-[16px] text-text-primary font-bold">
+                Installation, Testing and Data Analysis for a Weather Station
+              </h4>
+              <span class="font-label-mono-sm text-label-mono-sm text-primary font-semibold shrink-0">2023</span>
+            </div>
+            <div class="flex flex-wrap items-center gap-x-2 gap-y-0.5 font-label-mono-sm text-[12px] text-text-dim">
+              <span class="text-secondary font-semibold">2023 Resilience and Recovery Summit: "Resilience and Recovery: Uniting the Community"</span>
+              <span>·</span>
+              <span class="text-text-muted">Lamar University · Beaumont, Texas, USA</span>
+            </div>
+            <p class="font-body-md text-body-md text-text-muted leading-relaxed">
+              <strong>Authors:</strong> Dr. Stefan Andrei, Harini Doppalapudi, Ramanpreet Singh, Venkata Raghu Vishnumolakala, and <strong class="text-text-primary">Mufakir Qamar Ansari</strong>.
+            </p>
+            <p class="font-body-md text-body-md text-text-muted leading-relaxed">
+              Presented sensor deployment architectures, data telemetry validation, and statistical environmental analysis for meteorological monitoring systems supporting community resilience and extreme weather response.
+            </p>
+          </div>
         </div>
       </section>
 

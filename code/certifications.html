@@ -139,13 +139,16 @@
       ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
       ::-webkit-scrollbar-thumb:hover { background: #06b6d4; }
     }
+      #menu-toggle { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+    #mobile-drawer.hidden { display: none !important; }
+    #mobile-drawer:not(.hidden) { display: block !important; }
   </style>
 </head>
 
 <body class="bg-surface-base font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen relative overflow-x-hidden">
   <canvas id="background-canvas" class="fixed inset-0 pointer-events-none z-0 opacity-40"></canvas>
 
-      <!-- Sticky Terminal Header -->
+        <!-- Sticky Terminal Header -->
   <header class="fixed top-0 left-0 right-0 z-50 bg-surface-raised/95 backdrop-blur-xl border-b border-border-subtle" id="site-header">
     <div class="h-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-2 sm:gap-4">
       <!-- Brand & Telemetry Status -->
@@ -181,14 +184,14 @@
         <a class="hidden 2xl:inline-flex items-center justify-center bg-surface-overlay hover:bg-surface-raised text-text-primary font-label-mono-sm text-[12px] px-3 py-1.5 rounded-DEFAULT transition-colors border border-border-subtle whitespace-nowrap" href="bio.html">
           CV / Bio
         </a>
-        <button aria-label="Toggle navigation menu" aria-expanded="false" class="xl:hidden p-2 text-text-primary hover:bg-surface-overlay active:bg-surface-container rounded-DEFAULT flex items-center justify-center transition-colors" id="menu-toggle">
+        <button aria-label="Toggle navigation menu" aria-expanded="false" class="xl:hidden p-2 text-text-primary hover:bg-surface-overlay active:bg-surface-container rounded-DEFAULT flex items-center justify-center transition-colors" id="menu-toggle" style="touch-action: manipulation; -webkit-tap-highlight-color: transparent;">
           <span class="material-symbols-outlined text-[24px]" id="menu-toggle-icon">menu</span>
         </button>
       </div>
     </div>
 
     <!-- Dedicated Responsive Mobile Drawer -->
-    <div class="hidden xl:hidden border-t border-border-subtle bg-surface-raised/98 backdrop-blur-2xl shadow-2xl overflow-y-auto max-h-[calc(100vh-4rem)]" id="mobile-drawer">
+    <div class="hidden xl:hidden border-t border-border-subtle bg-surface-raised/98 backdrop-blur-md shadow-2xl overflow-y-auto max-h-[calc(100vh-4rem)]" id="mobile-drawer">
       <div class="px-4 py-3 flex flex-col gap-1">
       <a class="mobile-nav-link flex items-center justify-between px-3 py-2.5 rounded-DEFAULT font-label-mono-sm text-[13px] uppercase text-on-surface-variant hover:text-text-primary hover:bg-surface-overlay transition-colors" href="index.html">
         <span>Overview</span>
@@ -240,6 +243,61 @@
         </div>
       </div>
     </div>
+
+    <!-- Instant Mobile Menu Touch Controller -->
+    <script>
+      (function() {
+        var btn = document.getElementById('menu-toggle');
+        var drawer = document.getElementById('mobile-drawer');
+        var icon = document.getElementById('menu-toggle-icon');
+        if (!btn || !drawer) return;
+
+        window.__toggleMobileNav = function(forceClose) {
+          var isOpen = btn.getAttribute('aria-expanded') === 'true';
+          var next = forceClose === true ? false : (forceClose === false ? true : !isOpen);
+          btn.setAttribute('aria-expanded', next ? 'true' : 'false');
+          if (next) {
+            drawer.classList.remove('hidden');
+            if (icon) icon.textContent = 'close';
+          } else {
+            drawer.classList.add('hidden');
+            if (icon) icon.textContent = 'menu';
+          }
+        };
+
+        var lastTouch = 0;
+        btn.addEventListener('touchstart', function(e) {
+          lastTouch = Date.now();
+          e.preventDefault();
+          e.stopPropagation();
+          window.__toggleMobileNav();
+        }, { passive: false });
+
+        btn.addEventListener('click', function(e) {
+          if (Date.now() - lastTouch < 400) {
+            e.preventDefault();
+            return;
+          }
+          e.stopPropagation();
+          window.__toggleMobileNav();
+        });
+
+        drawer.querySelectorAll('a').forEach(function(a) {
+          a.addEventListener('click', function() {
+            window.__toggleMobileNav(true);
+          });
+        });
+
+        document.addEventListener('touchstart', function(e) {
+          if (btn.getAttribute('aria-expanded') === 'true') {
+            var header = document.getElementById('site-header');
+            if (header && !header.contains(e.target)) {
+              window.__toggleMobileNav(true);
+            }
+          }
+        }, { passive: true });
+      })();
+    </script>
   </header>
 
   <main class="w-full pt-16 relative z-10">
@@ -421,13 +479,13 @@
               <div class="grid grid-cols-2 gap-space-md py-space-md bg-surface-base px-space-md rounded-DEFAULT my-space-md border border-border-subtle">
                 <div>
                   <span class="font-label-mono-sm text-[11px] text-text-dim block">INSTITUTION</span>
-                  <span class="font-body-md text-body-md text-text-primary font-medium">National Institute of Tech (NIT)</span>
+                  <span class="font-body-md text-body-md text-text-primary font-medium">National Institute of Technology, Srinagar</span>
                   <span class="font-label-mono-sm text-[11px] text-text-muted block">Srinagar, India</span>
                 </div>
                 <div>
                   <span class="font-label-mono-sm text-[11px] text-text-dim block">TIMELINE / STATUS</span>
                   <span class="font-body-md text-body-md text-text-primary font-medium">July 2009 – July 2013</span>
-                  <span class="font-label-mono-sm text-[12px] text-status-active block font-bold">CONFERRED WITH HONORS</span>
+                  <span class="font-label-mono-sm text-[12px] text-status-active block font-bold"></span>
                 </div>
               </div>
 
@@ -441,11 +499,11 @@
 
             <div class="mt-space-lg pt-space-md border-t border-border-subtle flex flex-wrap items-center justify-between gap-space-sm font-label-mono-sm text-[12px]">
               <div class="flex items-center gap-space-xs">
-                <span class="px-2 py-0.5 bg-surface-overlay text-text-muted rounded-DEFAULT">INI_INSTITUTE</span>
-                <span class="px-2 py-0.5 bg-surface-overlay text-secondary rounded-DEFAULT">FIRST_CLASS_HONORS</span>
+                <span class="px-2 py-0.5 bg-surface-overlay text-text-muted rounded-DEFAULT">TRANSCRIPT_VERIFIED</span>
+                <span class="px-2 py-0.5 bg-surface-overlay text-secondary rounded-DEFAULT">GRADUATE</span>
               </div>
               <span class="text-status-active font-semibold flex items-center gap-1">
-                <span class="material-symbols-outlined text-[16px]">verified</span> Conferred First Class
+                <span class="material-symbols-outlined text-[16px]">verified</span> Conferred Concurrently
               </span>
             </div>
           </div>
@@ -459,7 +517,7 @@
         <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-md mb-space-xl">
           <div class="flex flex-col gap-1">
             <div class="flex items-center gap-2 text-primary font-label-mono-sm text-label-mono-sm uppercase tracking-wider font-semibold">
-              <span>[ SECTION 02 ]</span>
+              <span>[SECTION 02]</span>
               <span>//</span>
               <span>PEER-ACCREDITED CONTINUOUS SPECIALIZATIONS</span>
             </div>

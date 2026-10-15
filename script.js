@@ -36,6 +36,10 @@ function initNavigation() {
 
   if (menuToggle && drawer) {
     const toggleNav = (forceClose = false) => {
+      if (typeof window.__toggleMobileNav === "function") {
+        window.__toggleMobileNav(forceClose);
+        return;
+      }
       const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
       const shouldOpen = forceClose ? false : !isExpanded;
       menuToggle.setAttribute("aria-expanded", shouldOpen ? "true" : "false");
@@ -61,10 +65,15 @@ function initNavigation() {
       }
     };
 
-    menuToggle.addEventListener("click", (e) => {
-      e.stopPropagation();
-      toggleNav();
-    });
+    if (!menuToggle.getAttribute("data-nav-bound")) {
+      menuToggle.setAttribute("data-nav-bound", "true");
+      if (!window.__toggleMobileNav) {
+        menuToggle.addEventListener("click", (e) => {
+          e.stopPropagation();
+          toggleNav();
+        });
+      }
+    }
 
     drawer.querySelectorAll("a").forEach(a => {
       a.addEventListener("click", () => {
@@ -802,13 +811,15 @@ function initBackgroundCanvas() {
   const ctx = canvas.getContext("2d");
   if (!ctx) return;
 
+  const isMobile = window.innerWidth < 768;
   let width, height;
   let particles = [];
 
   function resize() {
     width = canvas.width = window.innerWidth;
     height = canvas.height = window.innerHeight;
-    particles = Array.from({ length: Math.min(45, Math.floor(width / 35)) }, () => ({
+    const count = isMobile ? Math.min(18, Math.floor(width / 40)) : Math.min(45, Math.floor(width / 35));
+    particles = Array.from({ length: count }, () => ({
       x: Math.random() * width,
       y: Math.random() * height,
       vx: (Math.random() - 0.5) * 0.25,
@@ -817,9 +828,53 @@ function initBackgroundCanvas() {
     }));
   }
 
-  function draw() {
-    ctx.clearRect(0, 0, width, height);
+  // On mobile screens, render a static high-efficiency ambient constellation once to preserve 100% CPU/GPU for instant UI responsiveness
+  if (isMobile) {
+    function drawStatic() {
+      ctx.clearRect(0, 0, width, height);
+      ctx.fillStyle = "rgba(6, 182, 212, 0.15)";
+      ctx.strokeStyle = "rgba(6, 182, 212, 0.04)";
 
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fill();
+
+        for (let j = i + 1; j < particles.length; j++) {
+          const p2 = particles[j];
+          const dx = p.x - p2.x;
+          const dy = p.y - p2.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < 110) {
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.stroke();
+          }
+        }
+      }
+    }
+
+    resize();
+    drawStatic();
+    window.addEventListener("resize", () => {
+      resize();
+      drawStatic();
+    });
+    return;
+  }
+
+  let animId = null;
+  function draw() {
+    // If tab is hidden, skip drawing to save power and battery
+    if (document.hidden) {
+      animId = requestAnimationFrame(draw);
+      return;
+    }
+
+    ctx.clearRect(0, 0, width, height);
     ctx.fillStyle = "rgba(6, 182, 212, 0.15)";
     ctx.strokeStyle = "rgba(6, 182, 212, 0.04)";
 
@@ -852,7 +907,7 @@ function initBackgroundCanvas() {
       }
     }
 
-    requestAnimationFrame(draw);
+    animId = requestAnimationFrame(draw);
   }
 
   window.addEventListener("resize", resize);

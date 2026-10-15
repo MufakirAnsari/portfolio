@@ -337,6 +337,33 @@ const researchPapers = [
   }
 ];
 
+const conferencePresentations = [
+  {
+    id: "pres-otec-2024",
+    title: "From Data to Action: Leveraging Machine Learning/Artificial Intelligence to Guide Proactive Pedestrian and Cyclist Safety Initiatives",
+    event: "Ohio Transportation Engineering Conference (OTEC 2024)",
+    year: "2024",
+    month: "October",
+    authors: "Rabinson Rai, Mufakir Qamar Ansari, Abiskar Nepal, Eddie Chou",
+    location: "Greater Columbus Convention Center · Columbus, Ohio, USA",
+    badge: "OTEC 2024 Oral Presentation",
+    category: "Applied AI & Transportation Safety",
+    summary: "Presented machine learning frameworks and predictive spatial safety models developed for the Ohio Department of Transportation (ODOT) to evaluate high-risk road corridors, vulnerable road user crash severities, and countermeasure allocations."
+  },
+  {
+    id: "pres-resilience-2023",
+    title: "Installation, Testing and Data Analysis for a Weather Station",
+    event: "2023 Resilience and Recovery Summit: Resilience and Recovery: Uniting the Community",
+    year: "2023",
+    authors: "Dr. Stefan Andrei, Harini Doppalapudi, Ramanpreet Singh, Venkata Raghu Vishnumolakala, Mufakir Qamar Ansari",
+    location: "Lamar University · Beaumont, Texas, USA",
+    badge: "2023 Resilience Summit Presentation",
+    category: "IoT Systems & Environmental Data Analysis",
+    summary: "Presented hardware sensor integration, meteorological telemetry data collection, and statistical analysis for resilient weather station infrastructure supporting regional emergency response and community recovery."
+  }
+];
+
 if (typeof module !== "undefined" && module.exports) {
-  module.exports = { researchPapers };
+  module.exports = { researchPapers, conferencePresentations };
 }
+
