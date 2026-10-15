@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
+<html class="dark overflow-x-hidden" lang="en">
 <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -149,46 +149,102 @@
   </style>
 </head>
 
-<body class="bg-surface-base font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen relative">
+<body class="bg-surface-base font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen relative overflow-x-hidden">
   <canvas id="background-canvas" class="fixed inset-0 pointer-events-none z-0 opacity-40"></canvas>
 
-  <!-- Sticky Terminal Header -->
-  <header class="fixed top-0 left-0 right-0 z-50 bg-surface-raised/90 backdrop-blur-xl border-b border-border-subtle" id="site-header">
-    <div class="h-16 max-w-7xl mx-auto px-gutter flex items-center justify-between gap-space-md">
-      <!-- Brand -->
-      <div class="flex items-center gap-space-md shrink-0">
-        <a href="index.html" class="flex items-center gap-2 group">
-          <img alt="Mufakir Ansari Brand Mark" class="h-8 w-auto object-contain group-hover:scale-105 transition-transform" src="logo.png"/>
-          <div class="flex flex-col">
-            <span class="font-headline-md text-headline-md font-semibold tracking-tight text-text-primary leading-none">Mufakir Ansari</span>
-            <span class="font-label-mono-sm text-label-mono-sm text-text-dim uppercase tracking-wider mt-1">AI Researcher &amp; Systems Architect</span>
+    <!-- Sticky Terminal Header -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-surface-raised/95 backdrop-blur-xl border-b border-border-subtle" id="site-header">
+    <div class="h-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-2 sm:gap-4">
+      <!-- Brand & Telemetry Status -->
+      <div class="flex items-center gap-2 sm:gap-3 min-w-0 shrink">
+        <a href="index.html" class="flex items-center gap-2 group min-w-0">
+          <img alt="Mufakir Ansari Brand Mark" class="h-7 sm:h-8 w-auto object-contain shrink-0 group-hover:scale-105 transition-transform" src="logo.png"/>
+          <div class="flex flex-col min-w-0">
+            <span class="font-headline-md text-[15px] sm:text-[18px] font-semibold tracking-tight text-text-primary leading-tight truncate">Mufakir Ansari</span>
+            <span class="hidden md:block font-label-mono-sm text-[10px] text-text-dim uppercase tracking-wider mt-0.5 truncate">AI Researcher &amp; Systems Architect</span>
           </div>
         </a>
       </div>
 
-      <!-- Navigation Links -->
+      <!-- Navigation Links (Desktop) -->
       <nav class="hidden xl:flex items-center gap-1 shrink-0" id="site-nav">
-        <a class="px-2.5 py-1.5 font-label-mono-sm text-label-mono-sm uppercase text-on-surface-variant hover:text-text-primary hover:bg-surface-overlay/60 transition-colors" href="index.html">Overview</a>
-        <a class="px-2.5 py-1.5 font-label-mono-sm text-label-mono-sm uppercase text-on-surface-variant hover:text-text-primary hover:bg-surface-overlay/60 transition-colors" href="index.html#research">Research</a>
-        <a class="px-2.5 py-1.5 font-label-mono-sm text-label-mono-sm uppercase text-on-surface-variant hover:text-text-primary hover:bg-surface-overlay/60 transition-colors" href="reviews.html">Peer Reviews</a>
-        <a class="px-2.5 py-1.5 font-label-mono-sm text-label-mono-sm uppercase text-on-surface-variant hover:text-text-primary hover:bg-surface-overlay/60 transition-colors" href="index.html#experience">Experience</a>
-        <a class="px-2.5 py-1.5 font-label-mono-sm text-label-mono-sm uppercase text-on-surface-variant hover:text-text-primary hover:bg-surface-overlay/60 transition-colors" href="hire_me.html">Hire Me</a>
-        <a class="px-2.5 py-1.5 font-label-mono-sm text-label-mono-sm uppercase text-on-surface-variant hover:text-text-primary hover:bg-surface-overlay/60 transition-colors" href="freelance.html">Freelance</a>
-        <a class="px-2.5 py-1.5 font-label-mono-sm text-label-mono-sm uppercase text-on-surface-variant hover:text-text-primary hover:bg-surface-overlay/60 transition-colors" href="certifications.html">Credentials</a>
-        <a aria-current="page" class="px-2.5 py-1.5 font-label-mono-sm text-label-mono-sm uppercase bg-surface-overlay text-primary border border-primary/30 rounded-DEFAULT transition-colors" href="contact.html">Contact</a>
+        <a class="nav-link px-2.5 py-1.5 font-label-mono-sm text-label-mono-sm uppercase text-on-surface-variant hover:text-text-primary hover:bg-surface-overlay/60 transition-colors" href="index.html" id="nav-overview">Overview</a>
+        <a class="nav-link px-2.5 py-1.5 font-label-mono-sm text-label-mono-sm uppercase text-on-surface-variant hover:text-text-primary hover:bg-surface-overlay/60 transition-colors" href="index.html#research" id="nav-research">Research</a>
+        <a class="nav-link px-2.5 py-1.5 font-label-mono-sm text-label-mono-sm uppercase text-on-surface-variant hover:text-text-primary hover:bg-surface-overlay/60 transition-colors" href="reviews.html" id="nav-reviews">Peer Reviews</a>
+        <a class="nav-link px-2.5 py-1.5 font-label-mono-sm text-label-mono-sm uppercase text-on-surface-variant hover:text-text-primary hover:bg-surface-overlay/60 transition-colors" href="index.html#experience" id="nav-experience">Experience</a>
+        <a class="nav-link px-2.5 py-1.5 font-label-mono-sm text-label-mono-sm uppercase text-on-surface-variant hover:text-text-primary hover:bg-surface-overlay/60 transition-colors" href="index.html#stack" id="nav-stack">Stack</a>
+        <a class="nav-link px-2.5 py-1.5 font-label-mono-sm text-label-mono-sm uppercase text-on-surface-variant hover:text-text-primary hover:bg-surface-overlay/60 transition-colors" href="hire_me.html" id="nav-hire">Hire Me</a>
+        <a class="nav-link px-2.5 py-1.5 font-label-mono-sm text-label-mono-sm uppercase text-on-surface-variant hover:text-text-primary hover:bg-surface-overlay/60 transition-colors" href="freelance.html" id="nav-freelance">Freelance</a>
+        <a class="nav-link px-2.5 py-1.5 font-label-mono-sm text-label-mono-sm uppercase text-on-surface-variant hover:text-text-primary hover:bg-surface-overlay/60 transition-colors" href="certifications.html" id="nav-credentials">Credentials</a>
+        <a aria-current="page" class="nav-link px-2.5 py-1.5 font-label-mono-sm text-label-mono-sm uppercase bg-surface-overlay text-primary border border-primary/30 rounded-DEFAULT transition-colors" href="contact.html" id="nav-contact">Contact</a>
       </nav>
 
       <!-- Action Buttons & Mobile Hamburger -->
-      <div class="flex items-center gap-space-sm shrink-0">
-        <a class="hidden sm:inline-flex items-center justify-center bg-primary-container/20 hover:bg-primary-container/30 text-primary border border-primary/40 font-label-mono-md text-label-mono-md px-3.5 py-2 rounded-DEFAULT transition-all shadow-sm" href="Mufakir_Ansari_Resume.pdf" target="_blank" download="Mufakir_Ansari_Resume.pdf">
-          <span class="material-symbols-outlined text-[16px] mr-1">download</span> Resume (PDF)
+      <div class="flex items-center gap-2 shrink-0">
+        <a class="hidden sm:inline-flex items-center justify-center bg-primary-container hover:bg-primary-fixed-dim text-on-primary font-label-mono-sm text-[12px] px-3 py-1.5 rounded-DEFAULT transition-all shadow-[0_0_12px_rgba(6,182,212,0.25)] font-semibold" href="Mufakir_Ansari_Resume.pdf" target="_blank" download="Mufakir_Ansari_Resume.pdf">
+          <span class="material-symbols-outlined text-[15px] mr-1">download</span>
+          Resume
         </a>
-        <a class="hidden sm:inline-flex items-center justify-center bg-primary-container hover:bg-primary-fixed-dim text-on-primary font-label-mono-md text-label-mono-md px-3.5 py-2 rounded-DEFAULT transition-all shadow-[0_0_12px_rgba(6,182,212,0.25)]" href="bio.html">
-          &gt; Executive Bio / CV
+        <a class="hidden md:inline-flex items-center justify-center bg-surface-overlay hover:bg-surface-raised text-text-primary font-label-mono-sm text-[12px] px-3 py-1.5 rounded-DEFAULT transition-colors border border-border-subtle" href="bio.html">
+          CV / Bio
         </a>
-        <button aria-label="Toggle navigation menu" aria-expanded="false" class="xl:hidden p-2 text-text-primary hover:bg-surface-overlay rounded-DEFAULT" id="menu-toggle">
-          <span class="material-symbols-outlined text-[24px]">menu</span>
+        <button aria-label="Toggle navigation menu" aria-expanded="false" class="xl:hidden p-2 text-text-primary hover:bg-surface-overlay active:bg-surface-container rounded-DEFAULT flex items-center justify-center transition-colors" id="menu-toggle">
+          <span class="material-symbols-outlined text-[24px]" id="menu-toggle-icon">menu</span>
         </button>
+      </div>
+    </div>
+
+    <!-- Dedicated Responsive Mobile Drawer -->
+    <div class="hidden xl:hidden border-t border-border-subtle bg-surface-raised/98 backdrop-blur-2xl shadow-2xl overflow-y-auto max-h-[calc(100vh-4rem)]" id="mobile-drawer">
+      <div class="px-4 py-3 flex flex-col gap-1">
+      <a class="mobile-nav-link flex items-center justify-between px-3 py-2.5 rounded-DEFAULT font-label-mono-sm text-[13px] uppercase text-on-surface-variant hover:text-text-primary hover:bg-surface-overlay transition-colors" href="index.html">
+        <span>Overview</span>
+        <span class="material-symbols-outlined text-[16px] text-text-dim">chevron_right</span>
+      </a>
+      <a class="mobile-nav-link flex items-center justify-between px-3 py-2.5 rounded-DEFAULT font-label-mono-sm text-[13px] uppercase text-on-surface-variant hover:text-text-primary hover:bg-surface-overlay transition-colors" href="index.html#research">
+        <span>Research</span>
+        <span class="material-symbols-outlined text-[16px] text-text-dim">chevron_right</span>
+      </a>
+      <a class="mobile-nav-link flex items-center justify-between px-3 py-2.5 rounded-DEFAULT font-label-mono-sm text-[13px] uppercase text-on-surface-variant hover:text-text-primary hover:bg-surface-overlay transition-colors" href="reviews.html">
+        <span>Peer Reviews</span>
+        <span class="material-symbols-outlined text-[16px] text-text-dim">chevron_right</span>
+      </a>
+      <a class="mobile-nav-link flex items-center justify-between px-3 py-2.5 rounded-DEFAULT font-label-mono-sm text-[13px] uppercase text-on-surface-variant hover:text-text-primary hover:bg-surface-overlay transition-colors" href="index.html#experience">
+        <span>Experience</span>
+        <span class="material-symbols-outlined text-[16px] text-text-dim">chevron_right</span>
+      </a>
+      <a class="mobile-nav-link flex items-center justify-between px-3 py-2.5 rounded-DEFAULT font-label-mono-sm text-[13px] uppercase text-on-surface-variant hover:text-text-primary hover:bg-surface-overlay transition-colors" href="index.html#stack">
+        <span>Stack</span>
+        <span class="material-symbols-outlined text-[16px] text-text-dim">chevron_right</span>
+      </a>
+      <a class="mobile-nav-link flex items-center justify-between px-3 py-2.5 rounded-DEFAULT font-label-mono-sm text-[13px] uppercase text-on-surface-variant hover:text-text-primary hover:bg-surface-overlay transition-colors" href="hire_me.html">
+        <span>Hire Me</span>
+        <span class="material-symbols-outlined text-[16px] text-text-dim">chevron_right</span>
+      </a>
+      <a class="mobile-nav-link flex items-center justify-between px-3 py-2.5 rounded-DEFAULT font-label-mono-sm text-[13px] uppercase text-on-surface-variant hover:text-text-primary hover:bg-surface-overlay transition-colors" href="freelance.html">
+        <span>Freelance</span>
+        <span class="material-symbols-outlined text-[16px] text-text-dim">chevron_right</span>
+      </a>
+      <a class="mobile-nav-link flex items-center justify-between px-3 py-2.5 rounded-DEFAULT font-label-mono-sm text-[13px] uppercase text-on-surface-variant hover:text-text-primary hover:bg-surface-overlay transition-colors" href="certifications.html">
+        <span>Credentials</span>
+        <span class="material-symbols-outlined text-[16px] text-text-dim">chevron_right</span>
+      </a>
+      <a class="mobile-nav-link flex items-center justify-between px-3 py-2.5 rounded-DEFAULT font-label-mono-sm text-[13px] uppercase bg-surface-overlay text-primary border border-primary/30 font-semibold transition-colors" href="contact.html">
+        <span>Contact</span>
+        <span class="text-primary font-bold">●</span>
+      </a>
+
+        <!-- Quick Action Buttons in Drawer -->
+        <div class="pt-3 mt-1 border-t border-border-subtle grid grid-cols-2 gap-2">
+          <a class="flex items-center justify-center gap-1.5 bg-primary-container text-on-primary font-label-mono-sm text-[12px] font-semibold py-2.5 px-3 rounded-DEFAULT shadow-sm text-center" href="Mufakir_Ansari_Resume.pdf" target="_blank" download="Mufakir_Ansari_Resume.pdf">
+            <span class="material-symbols-outlined text-[16px]">download</span>
+            <span>Resume (PDF)</span>
+          </a>
+          <a class="flex items-center justify-center gap-1.5 bg-surface-overlay text-text-primary border border-border-subtle font-label-mono-sm text-[12px] font-semibold py-2.5 px-3 rounded-DEFAULT text-center" href="bio.html">
+            <span class="material-symbols-outlined text-[16px]">badge</span>
+            <span>CV / Bio</span>
+          </a>
+        </div>
       </div>
     </div>
   </header>
