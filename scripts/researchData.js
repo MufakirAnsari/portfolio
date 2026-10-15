@@ -99,7 +99,8 @@ const researchPapers = [
       "Extreme Training and Computational Efficiency: The Decision Tree classifier trained in just 3.74 seconds with a test execution time of 0.0124 seconds, bypassing the multi-hour training bottlenecks of deep tabular architectures like TabNet (4,436 s) and BiLSTM (982 s) while delivering superior multiclass accuracy."
     ],
     codeUrl: "https://github.com/MufakirAnsari",
-    paperUrl: "https://www.scitepress.org/Papers/2025/132037/132037.pdf"
+    paperUrl: "https://www.scitepress.org/Papers/2025/132037/132037.pdf",
+    presentationUrl: "https://www.insticc.org/node/TechnicalProgram/iotbds/2025/presentationDetails/132037"
   },
   {
     id: "epf-electricity",
@@ -338,6 +339,23 @@ const researchPapers = [
 ];
 
 const conferencePresentations = [
+  {
+    id: "pres-iotbds-2025",
+    title: "Enhanced Intrusion Detection in IIoT Networks: A Lightweight Approach with Autoencoder-Based Feature Learning",
+    event: "10th International Conference on Internet of Things, Big Data and Security (IoTBDS 2025)",
+    session: "IoTBDS25-4O: Oral Presentations (Online): Security, Privacy and Trust",
+    date: "Tuesday, April 8th, 2025 (14:30 – 16:00)",
+    year: "2025",
+    month: "April",
+    speaker: "Mufakir Qamar Ansari (Speaker & Presenter)",
+    authors: "Tasnimul Hasan, Abrar Hossain, Mufakir Qamar Ansari, Talha Hussain Syed",
+    location: "Room Stanley Kubrick (Online) · INSTICC",
+    badge: "IoTBDS 2025 Oral Presentation",
+    category: "Cybersecurity & Edge AI",
+    presentationUrl: "https://www.insticc.org/node/TechnicalProgram/iotbds/2025/presentationDetails/132037",
+    paperUrl: "https://www.scitepress.org/Papers/2025/132037/132037.pdf",
+    summary: "Delivered the technical oral presentation for Paper #19 on a deterministic cost-sensitive bottleneck autoencoder (24→6→24) with edge deployment on NVIDIA Jetson Nano hardware for real-time Industrial IoT intrusion detection, achieving 99.94% Macro F1 with 0.185 ms inference latency."
+  },
   {
     id: "pres-otec-2024",
     title: "From Data to Action: Leveraging Machine Learning/Artificial Intelligence to Guide Proactive Pedestrian and Cyclist Safety Initiatives",
