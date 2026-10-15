@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  
+  <!-- Primary SEO -->
+  <title>Mufakir Ansari | AI Researcher & Systems Architect</title>
+  <meta name="description" content="Mufakir Ansari is an AI Researcher & Data Scientist specializing in AI for Science, High-Performance Computing (HPC), Self-Supervised Learning, Quantum Circuit Knitting, and Applied Machine Learning. Author of 10 research papers and peer reviewer for Elsevier & IEEE."/>
+  <meta name="keywords" content="Mufakir Ansari, Mufakir Qamar Ansari, AI Researcher, Data Scientist, Machine Learning Engineer, High Performance Computing, HPC, Quantum Circuit Knitting, DynaCut, Dy-Part, DDFF, SimCLR, Pathology AI, Energy Price Forecasting, Bioinformatics, PyTorch, CUDA, Wright State, University of Toledo"/>
+  <meta name="author" content="Mufakir Ansari"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://www.mufakir.live/"/>
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://www.mufakir.live/"/>
+  <meta property="og:title" content="Mufakir Ansari | AI Researcher & Systems Architect"/>
+  <meta property="og:description" content="AI Researcher and Data Scientist building scientific AI systems with strong compute, modeling, and product execution. 10 research papers, 47 peer reviews, and scalable HPC pipelines."/>
+  <meta property="og:site_name" content="Mufakir Ansari Portfolio"/>
+  <meta property="og:image" content="https://www.mufakir.live/logo.png"/>
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Mufakir Ansari | AI Researcher & Systems Architect"/>
+  <meta name="twitter:description" content="Data scientist and AI researcher building scientific AI systems across HPC, representation learning, time-series forecasting, and quantum circuit knitting."/>
+
+  <!-- JSON-LD Structured Data (Schema.org) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "name": "Mufakir Ansari",
+        "alternateName": "Mufakir Qamar Ansari",
+        "url": "https://www.mufakir.live/",
+        "email": "mufakirqamaransari@gmail.com",
+        "jobTitle": "AI Researcher and Data Scientist",
+        "description": "AI researcher specializing in high-performance computing, quantum circuit knitting, self-supervised learning, and applied machine learning systems.",
+        "alumniOf": [
+          { "@type": "CollegeOrUniversity", "name": "The University of Toledo" },
+          { "@type": "CollegeOrUniversity", "name": "National Institute of Technology Srinagar" }
+        ],
+        "knowsAbout": [
+          "Artificial Intelligence", "High-Performance Computing", "Quantum Circuit Knitting",
+          "Machine Learning", "Deep Learning", "Bioinformatics", "Time Series Forecasting",
+          "Self-Supervised Learning", "CUDA", "PyTorch", "Distributed Systems"
+        ],
+        "sameAs": [
+          "https://www.linkedin.com/in/mufakir/",
+          "https://github.com/MufakirAnsari",
+          "https://scholar.google.com/citations?user=8gNxoaAAAAAJ&hl=en"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "name": "Mufakir Ansari Portfolio",
+        "url": "https://www.mufakir.live/",
+        "author": { "@type": "Person", "name": "Mufakir Ansari" }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Google Fonts & Material Symbols -->
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+
+  <!-- KaTeX for High-Fidelity Scientific Math Typography -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+
+  <!-- Tailwind CDN & Custom Configuration -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary-container": "#06b6d4",
+            "surface-container-high": "#252a39",
+            "background": "#0e1321",
+            "on-primary-fixed": "#001f26",
+            "inverse-on-surface": "#2b303f",
+            "surface-tint": "#4cd7f6",
+            "surface-container-low": "#161b2a",
+            "tertiary-container": "#23b2ec",
+            "secondary": "#d0bcff",
+            "outline": "#869397",
+            "status-warning": "#f59e0b",
+            "surface-base": "#0a0f1d",
+            "text-primary": "#f8fafc",
+            "surface-overlay": "#162032",
+            "on-primary-container": "#00424f",
+            "on-tertiary-container": "#00415a",
+            "primary-fixed": "#acedff",
+            "on-surface": "#dee2f6",
+            "surface-container-lowest": "#090e1c",
+            "primary-fixed-dim": "#4cd7f6",
+            "on-tertiary": "#00354a",
+            "status-active": "#10b981",
+            "tertiary": "#7bd0ff",
+            "error-container": "#93000a",
+            "on-secondary-fixed": "#23005c",
+            "surface-container": "#1a1f2e",
+            "primary": "#4cd7f6",
+            "on-tertiary-fixed-variant": "#004c69",
+            "on-tertiary-fixed": "#001e2c",
+            "surface": "#0e1321",
+            "secondary-fixed": "#e9ddff",
+            "surface-raised": "#0f172a",
+            "on-secondary": "#3c0091",
+            "on-secondary-container": "#c4abff",
+            "surface-container-highest": "#303444",
+            "inverse-primary": "#00687a",
+            "border-subtle": "#1e293b",
+            "inverse-surface": "#dee2f6",
+            "on-background": "#dee2f6",
+            "border-active": "#334155",
+            "secondary-container": "#571bc1",
+            "text-dim": "#64748b",
+            "on-error": "#690005",
+            "surface-dim": "#0e1321",
+            "text-muted": "#94a3b8",
+            "on-error-container": "#ffdad6",
+            "error": "#ffb4ab",
+            "on-secondary-fixed-variant": "#5516be",
+            "on-surface-variant": "#bcc9cd",
+            "on-primary-fixed-variant": "#004e5c",
+            "secondary-fixed-dim": "#d0bcff",
+            "tertiary-fixed": "#c4e7ff",
+            "surface-bright": "#343948",
+            "on-primary": "#003640",
+            "tertiary-fixed-dim": "#7bd0ff",
+            "surface-variant": "#303444",
+            "outline-variant": "#3d494c",
+            "status-error": "#ef4444"
+          },
+          borderRadius: {
+            DEFAULT: "0.125rem",
+            lg: "0.25rem",
+            xl: "0.5rem",
+            full: "0.75rem"
+          },
+          spacing: {
+            "space-xs": "0.25rem",
+            "margin": "3rem",
+            "space-sm": "0.5rem",
+            "space-2xl": "4rem",
+            "margin-mobile": "1.25rem",
+            "space-lg": "1.5rem",
+            "space-xl": "2.5rem",
+            "space-md": "1rem",
+            gutter: "1.5rem",
+            "gutter-mobile": "1rem"
+          },
+          fontFamily: {
+            "label-mono-sm": ["JetBrains Mono", "monospace"],
+            "body-md": ["Inter", "sans-serif"],
+            display: ["Inter", "sans-serif"],
+            "label-mono-lg": ["JetBrains Mono", "monospace"],
+            "display-mobile": ["Inter", "sans-serif"],
+            "body-lg": ["Inter", "sans-serif"],
+            "label-mono-md": ["JetBrains Mono", "monospace"],
+            "headline-lg": ["Inter", "sans-serif"],
+            "headline-md": ["Inter", "sans-serif"],
+            "metric-stat": ["JetBrains Mono", "monospace"]
+          },
+          fontSize: {
+            "label-mono-sm": ["11px", { lineHeight: "16px", letterSpacing: "0.08em", fontWeight: "500" }],
+            "body-md": ["14px", { lineHeight: "22px", fontWeight: "400" }],
+            display: ["48px", { lineHeight: "56px", letterSpacing: "-0.03em", fontWeight: "700" }],
+            "label-mono-lg": ["16px", { lineHeight: "24px", letterSpacing: "-0.01em", fontWeight: "600" }],
+            "display-mobile": ["32px", { lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "700" }],
+            "body-lg": ["16px", { lineHeight: "26px", fontWeight: "400" }],
+            "label-mono-md": ["13px", { lineHeight: "18px", letterSpacing: "0.02em", fontWeight: "500" }],
+            "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "600" }],
+            "headline-md": ["20px", { lineHeight: "28px", letterSpacing: "-0.01em", fontWeight: "600" }],
+            "metric-stat": ["36px", { lineHeight: "44px", letterSpacing: "-0.03em", fontWeight: "700" }]
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    @layer base {
+      html, body { margin: 0; padding: 0; scroll-behavior: smooth; }
+      ::-webkit-scrollbar { width: 8px; height: 8px; }
+      ::-webkit-scrollbar-track { background: #0a0f1d; }
+      ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
+      ::-webkit-scrollbar-thumb:hover { background: #06b6d4; }
+    }
+  </style>
+</head>
+
+<body class="bg-surface-base font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen relative">
+  <canvas id="background-canvas" class="fixed inset-0 pointer-events-none z-0 opacity-40"></canvas>
+
+  <!-- Sticky Terminal Header -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-surface-raised/90 backdrop-blur-xl border-b border-border-subtle" id="site-header">
+    <div class="h-16 max-w-7xl mx-auto px-gutter flex items-center justify-between gap-space-md">
+      <!-- Brand & Telemetry Status -->
+      <div class="flex items-center gap-space-md shrink-0">
+        <a href="index.html" class="flex items-center gap-2 group">
+          <img alt="Mufakir Ansari Brand Mark" class="h-8 w-auto object-contain group-hover:scale-105 transition-transform" src="logo.png"/>
+          <div class="flex flex-col">
+            <span class="font-headline-md text-headline-md font-semibold tracking-tight text-text-primary leading-none">Mufakir Ansari</span>
+            <span class="font-label-mono-sm text-label-mono-sm text-text-dim uppercase tracking-wider mt-1">AI Researcher &amp; Systems Architect</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Navigation Links -->
+      <nav class="hidden xl:flex items-center gap-1 shrink-0" id="site-nav">
+        <a aria-current="page" class="nav-link px-2.5 py-1.5 font-label-mono-sm text-label-mono-sm uppercase bg-surface-overlay text-primary border border-primary/30 rounded-DEFAULT transition-colors" href="index.html" id="nav-overview">Overview</a>
+        <a class="nav-link px-2.5 py-1.5 font-label-mono-sm text-label-mono-sm uppercase text-on-surface-variant hover:text-text-primary hover:bg-surface-overlay/60 transition-colors" href="#research" id="nav-research">Research</a>
+        <a class="nav-link px-2.5 py-1.5 font-label-mono-sm text-label-mono-sm uppercase text-on-surface-variant hover:text-text-primary hover:bg-surface-overlay/60 transition-colors" href="reviews.html" id="nav-reviews">Peer Reviews</a>
+        <a class="nav-link px-2.5 py-1.5 font-label-mono-sm text-label-mono-sm uppercase text-on-surface-variant hover:text-text-primary hover:bg-surface-overlay/60 transition-colors" href="#experience" id="nav-experience">Experience</a>
+        <a class="nav-link px-2.5 py-1.5 font-label-mono-sm text-label-mono-sm uppercase text-on-surface-variant hover:text-text-primary hover:bg-surface-overlay/60 transition-colors" href="#stack" id="nav-stack">Stack</a>
+        <a class="nav-link px-2.5 py-1.5 font-label-mono-sm text-label-mono-sm uppercase text-on-surface-variant hover:text-text-primary hover:bg-surface-overlay/60 transition-colors" href="hire_me.html" id="nav-hire">Hire Me</a>
+        <a class="nav-link px-2.5 py-1.5 font-label-mono-sm text-label-mono-sm uppercase text-on-surface-variant hover:text-text-primary hover:bg-surface-overlay/60 transition-colors" href="freelance.html" id="nav-freelance">Freelance</a>
+        <a class="nav-link px-2.5 py-1.5 font-label-mono-sm text-label-mono-sm uppercase text-on-surface-variant hover:text-text-primary hover:bg-surface-overlay/60 transition-colors" href="certifications.html" id="nav-credentials">Credentials</a>
+        <a class="nav-link px-2.5 py-1.5 font-label-mono-sm text-label-mono-sm uppercase text-on-surface-variant hover:text-text-primary hover:bg-surface-overlay/60 transition-colors" href="contact.html" id="nav-contact">Contact</a>
+      </nav>
+
+      <!-- Action Buttons & Mobile Hamburger -->
+      <div class="flex items-center gap-space-sm shrink-0">
+        <a class="hidden sm:inline-flex items-center justify-center bg-primary-container hover:bg-primary-fixed-dim text-on-primary font-label-mono-md text-label-mono-md px-3.5 py-2 rounded-DEFAULT transition-all shadow-[0_0_12px_rgba(6,182,212,0.25)] font-semibold" href="Mufakir_Ansari_Resume.pdf" target="_blank" download="Mufakir_Ansari_Resume.pdf">
+          <span class="material-symbols-outlined text-[16px] mr-1">download</span>
+          Resume (PDF)
+        </a>
+        <a class="hidden md:inline-flex items-center justify-center bg-surface-overlay hover:bg-surface-raised text-text-primary font-label-mono-sm text-label-mono-sm px-3 py-2 rounded-DEFAULT transition-colors border border-border-subtle" href="bio.html">
+          CV / Bio
+        </a>
+        <button aria-label="Toggle navigation menu" aria-expanded="false" class="xl:hidden p-2 text-text-primary hover:bg-surface-overlay rounded-DEFAULT" id="menu-toggle">
+          <span class="material-symbols-outlined text-[24px]">menu</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="w-full pt-16 relative z-10" id="top">
+    <!-- Top Command Center / Hero -->
+    <section class="relative w-full overflow-hidden pb-space-2xl pt-space-xl">
+      <div class="absolute -top-32 -left-24 w-96 h-96 rounded-full bg-primary/10 blur-[100px] pointer-events-none"></div>
+      <div class="absolute top-1/2 right-0 w-[30rem] h-[30rem] rounded-full bg-secondary-container/20 blur-[130px] pointer-events-none"></div>
+      
+      <div class="max-w-7xl mx-auto px-gutter relative z-10 flex flex-col gap-space-xl">
+        <!-- Cluster Telemetry Banner -->
+        <div class="flex flex-wrap items-center justify-between gap-space-sm bg-surface-raised/90 p-space-sm rounded-DEFAULT border border-border-subtle">
+          <div class="flex items-center gap-space-sm">
+            <span class="relative flex h-2.5 w-2.5">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-status-active opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-status-active"></span>
+            </span>
+            <span class="font-label-mono-sm text-label-mono-sm text-primary uppercase font-semibold tracking-wider">
+              OSC ASCEND CLUSTER ACTIVE · NODE PARTITION: ASCEND-GPU-A100
+            </span>
+          </div>
+          <div class="flex items-center gap-space-md font-label-mono-sm text-label-mono-sm text-text-muted">
+            <span>LATENCY: <strong class="text-text-primary">0.82ms</strong></span>
+            <span>GPU UTIL: <strong class="text-status-active">94.6%</strong></span>
+            <span>SCHEDULER: <strong class="text-secondary">SLURM v23.02</strong></span>
+          </div>
+        </div>
+
+        <!-- Hero Header & Mission -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
+          <div class="lg:col-span-8 flex flex-col gap-space-md">
+            <div class="flex items-center gap-space-xs font-label-mono-md text-label-mono-md text-primary">
+              <span class="material-symbols-outlined text-[18px]">terminal</span>
+              <span>dossier::mufakir_ansari --research-mode=active</span>
+            </div>
+            <h1 class="font-display text-display text-text-primary tracking-tight font-bold">
+              Engineering measurable, high-throughput <span class="text-primary-container">AI for Science</span> &amp; scalable compute.
+            </h1>
+            <p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl leading-relaxed">
+              Data scientist and AI researcher building scientific AI systems with strong compute, modeling, and product execution. My work spans high-performance computing, representation learning, time-series forecasting, and quantum circuit knitting.
+            </p>
+
+            <!-- Badges Bar -->
+            <div class="flex flex-wrap items-center gap-2 pt-2">
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-surface-overlay text-text-primary rounded-DEFAULT font-label-mono-sm text-label-mono-sm border border-border-subtle">
+                <span class="material-symbols-outlined text-[15px] text-primary">pin_drop</span> Canton, MI (Open to Relocate)
+              </span>
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-primary/10 text-primary rounded-DEFAULT font-label-mono-sm text-label-mono-sm border border-primary/20">
+                AI for Science
+              </span>
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-surface-overlay text-on-surface-variant rounded-DEFAULT font-label-mono-sm text-label-mono-sm border border-border-subtle">
+                HPC + Distributed ML
+              </span>
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-surface-overlay text-on-surface-variant rounded-DEFAULT font-label-mono-sm text-label-mono-sm border border-border-subtle">
+                9+ Years Exp
+              </span>
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-secondary-container/20 text-secondary rounded-DEFAULT font-label-mono-sm text-label-mono-sm border border-secondary/20">
+                Quantum Circuit Knitting
+              </span>
+            </div>
+
+            <!-- Actions -->
+            <div class="flex flex-wrap items-center gap-space-md pt-space-sm">
+              <a class="inline-flex items-center justify-center gap-2 bg-primary-container hover:bg-primary-fixed-dim text-on-primary font-label-mono-md text-label-mono-md px-5 py-2.5 rounded-DEFAULT shadow-[0_0_16px_rgba(6,182,212,0.35)] transition-all font-semibold" href="Mufakir_Ansari_Resume.pdf" target="_blank" download="Mufakir_Ansari_Resume.pdf">
+                <span class="material-symbols-outlined text-[18px]">download</span>
+                &gt; Download Resume (PDF)
+              </a>
+              <a class="inline-flex items-center justify-center gap-2 bg-surface-raised hover:bg-surface-overlay text-text-primary font-label-mono-md text-label-mono-md px-5 py-2.5 rounded-DEFAULT transition-colors border border-border-subtle font-semibold" href="hire_me.html">
+                <span class="material-symbols-outlined text-[18px] text-primary">bolt</span>
+                Hire Me / Full-Time
+              </a>
+              <a class="inline-flex items-center justify-center gap-2 bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-text-primary font-label-mono-md text-label-mono-md px-4 py-2.5 rounded-DEFAULT transition-colors border border-border-subtle" href="#research">
+                <span class="material-symbols-outlined text-[18px] text-primary">science</span>
+                Explore 10 Research Papers
+              </a>
+              <a class="inline-flex items-center justify-center gap-2 bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-text-primary font-label-mono-md text-label-mono-md px-4 py-2.5 rounded-DEFAULT transition-colors border border-border-subtle" href="reviews.html">
+                <span class="material-symbols-outlined text-[18px] text-status-active">verified_user</span>
+                Peer Reviews [47 Verified]
+              </a>
+            </div>
+          </div>
+
+          <!-- System Architecture Telemetry Mini-Panel -->
+          <div class="lg:col-span-4 bg-surface-raised p-space-md rounded-DEFAULT flex flex-col gap-space-md shadow-xl border border-border-subtle">
+            <div class="flex items-center justify-between pb-space-xs">
+              <span class="font-label-mono-sm text-label-mono-sm uppercase text-text-muted">SYSTEM TELEMETRY ENGINE</span>
+              <span class="font-label-mono-sm text-label-mono-sm text-status-active flex items-center gap-1 font-semibold">
+                <span class="w-1.5 h-1.5 rounded-full bg-status-active animate-ping"></span> ONLINE
+              </span>
+            </div>
+
+            <!-- Mini SVG Sparkline Pipeline Graph -->
+            <div class="w-full h-32 bg-surface-base rounded-DEFAULT p-space-sm flex flex-col justify-between relative overflow-hidden border border-border-subtle">
+              <div class="flex justify-between items-center text-text-dim font-label-mono-sm text-label-mono-sm">
+                <span>QUANTUM CIRCUIT KNITTING</span>
+                <span class="text-primary font-semibold">DynaCut Peak RAM</span>
+              </div>
+              <svg class="w-full h-16 text-primary" fill="none" preserveaspectratio="none" viewbox="0 0 320 60">
+                <defs>
+                  <lineargradient id="cyanGradient" x1="0" x2="0" y1="0" y2="1">
+                    <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.4"></stop>
+                    <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.0"></stop>
+                  </lineargradient>
+                </defs>
+                <path d="M0,45 Q30,10 60,35 T120,20 T180,40 T240,15 T300,25 L320,10 L320,60 L0,60 Z" fill="url(#cyanGradient)"></path>
+                <path d="M0,45 Q30,10 60,35 T120,20 T180,40 T240,15 T300,25 L320,10" stroke="#06b6d4" stroke-linecap="round" stroke-width="2"></path>
+              </svg>
+              <div class="flex items-center justify-between font-label-mono-sm text-label-mono-sm text-text-dim">
+                <span>26-Qubit IBM Simulation</span>
+                <span class="text-text-primary font-semibold">&le; 1.74 MB vs 1024 MB OOM</span>
+              </div>
+            </div>
+
+            <div class="flex flex-col gap-1.5 pt-1">
+              <div class="flex justify-between items-center font-label-mono-sm text-label-mono-sm">
+                <span class="text-text-dim">Academic Metric Index</span>
+                <span class="text-text-primary font-semibold">3.91 / 4.00 M.S. GPA</span>
+              </div>
+              <div class="w-full h-1.5 bg-surface-container rounded-full overflow-hidden">
+                <div class="h-full bg-primary-container" style="width: 97.75%;"></div>
+              </div>
+            </div>
+
+            <div class="p-space-sm bg-surface-container-low rounded-DEFAULT flex items-center justify-between border border-border-subtle">
+              <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-secondary text-[20px]">psychology</span>
+                <div class="flex flex-col">
+                  <span class="font-label-mono-sm text-label-mono-sm text-text-primary font-semibold">Wright State University</span>
+                  <span class="font-label-mono-sm text-label-mono-sm text-text-dim">Research Assistant · AI Systems</span>
+                </div>
+              </div>
+              <span class="px-2 py-0.5 bg-primary/10 text-primary font-label-mono-sm text-label-mono-sm rounded-DEFAULT font-semibold">2026</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Telemetry KPI Array -->
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-space-md pt-space-md">
+          <div class="bg-surface-raised p-space-md rounded-DEFAULT flex flex-col justify-between group hover:bg-surface-overlay transition-colors border border-border-subtle">
+            <div class="flex items-center justify-between">
+              <span class="font-label-mono-sm text-label-mono-sm text-text-dim uppercase">Publications</span>
+              <span class="material-symbols-outlined text-text-dim group-hover:text-primary text-[18px]">biotech</span>
+            </div>
+            <div class="pt-3">
+              <span class="font-metric-stat text-metric-stat text-text-primary tracking-tight">10</span>
+              <p class="font-label-mono-sm text-label-mono-sm text-text-muted mt-1">Peer-reviewed &amp; submitted</p>
+            </div>
+          </div>
+
+          <div class="bg-surface-raised p-space-md rounded-DEFAULT flex flex-col justify-between group hover:bg-surface-overlay transition-colors border border-border-subtle">
+            <div class="flex items-center justify-between">
+              <span class="font-label-mono-sm text-label-mono-sm text-text-dim uppercase">Peer Reviews</span>
+              <span class="material-symbols-outlined text-text-dim group-hover:text-status-active text-[18px]">verified_user</span>
+            </div>
+            <div class="pt-3">
+              <span class="font-metric-stat text-metric-stat text-status-active tracking-tight">47</span>
+              <p class="font-label-mono-sm text-label-mono-sm text-text-muted mt-1">43 Elsevier EAAI + IEEE</p>
+            </div>
+          </div>
+
+          <div class="bg-surface-raised p-space-md rounded-DEFAULT flex flex-col justify-between group hover:bg-surface-overlay transition-colors border border-border-subtle">
+            <div class="flex items-center justify-between">
+              <span class="font-label-mono-sm text-label-mono-sm text-text-dim uppercase">Pathology DL</span>
+              <span class="material-symbols-outlined text-text-dim group-hover:text-primary text-[18px]">cell_tower</span>
+            </div>
+            <div class="pt-3">
+              <span class="font-metric-stat text-metric-stat text-primary tracking-tight">277K+</span>
+              <p class="font-label-mono-sm text-label-mono-sm text-text-muted mt-1">SimCLR image tiles</p>
+            </div>
+          </div>
+
+          <div class="bg-surface-raised p-space-md rounded-DEFAULT flex flex-col justify-between group hover:bg-surface-overlay transition-colors border border-border-subtle">
+            <div class="flex items-center justify-between">
+              <span class="font-label-mono-sm text-label-mono-sm text-text-dim uppercase">Ebola RNA-seq</span>
+              <span class="material-symbols-outlined text-text-dim group-hover:text-status-active text-[18px]">schema</span>
+            </div>
+            <div class="pt-3">
+              <span class="font-metric-stat text-metric-stat text-status-active tracking-tight">356</span>
+              <p class="font-label-mono-sm text-label-mono-sm text-text-muted mt-1">OSC runs · 15M+ reads</p>
+            </div>
+          </div>
+
+          <div class="bg-surface-raised p-space-md rounded-DEFAULT flex flex-col justify-between group hover:bg-surface-overlay transition-colors border border-border-subtle">
+            <div class="flex items-center justify-between">
+              <span class="font-label-mono-sm text-label-mono-sm text-text-dim uppercase">GPU Speedup</span>
+              <span class="material-symbols-outlined text-text-dim group-hover:text-secondary text-[18px]">speed</span>
+            </div>
+            <div class="pt-3">
+              <span class="font-metric-stat text-metric-stat text-secondary tracking-tight">593&times;</span>
+              <p class="font-label-mono-sm text-label-mono-sm text-text-muted mt-1">CUDA GEMM acceleration</p>
+            </div>
+          </div>
+
+          <div class="bg-surface-raised p-space-md rounded-DEFAULT flex flex-col justify-between group hover:bg-surface-overlay transition-colors border border-border-subtle">
+            <div class="flex items-center justify-between">
+              <span class="font-label-mono-sm text-label-mono-sm text-text-dim uppercase">M.S. Standing</span>
+              <span class="material-symbols-outlined text-text-dim group-hover:text-primary text-[18px]">school</span>
+            </div>
+            <div class="pt-3">
+              <span class="font-metric-stat text-metric-stat text-text-primary tracking-tight">3.91</span>
+              <p class="font-label-mono-sm text-label-mono-sm text-text-muted mt-1">AI Track (UToledo)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: RESEARCH CATALOG (10 PAPERS WITH PROSPECTUS MODALS) -->
+    <section class="w-full py-space-2xl bg-surface-raised/40 border-y border-border-subtle" id="research">
+      <div class="max-w-7xl mx-auto px-gutter flex flex-col gap-space-xl">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md pb-space-sm">
+          <div class="flex flex-col gap-1">
+            <div class="flex items-center gap-2 font-label-mono-sm text-label-mono-sm text-primary uppercase tracking-widest font-semibold">
+              <span class="material-symbols-outlined text-[16px]">science</span> RESEARCH CATALOG // 10 PAPERS
+            </div>
+            <h2 class="font-headline-lg text-headline-lg text-text-primary font-bold tracking-tight">
+              Featured Research &amp; Scientific AI Systems
+            </h2>
+            <p class="font-body-md text-body-md text-text-muted max-w-2xl mt-1">
+              Click any paper card or prospectus button to open the comprehensive mathematical formulations, empirical benchmarks, and ablation studies.
+            </p>
+          </div>
+          
+          <!-- Category Filters -->
+          <div class="flex flex-wrap items-center gap-2 bg-surface-base p-1.5 rounded-DEFAULT border border-border-subtle shrink-0">
+            <button class="paper-filter-btn px-3 py-1 font-label-mono-sm text-label-mono-sm bg-primary text-on-primary rounded-DEFAULT font-semibold" data-category="all">ALL [10]</button>
+            <button class="paper-filter-btn px-3 py-1 font-label-mono-sm text-label-mono-sm text-text-dim hover:text-text-primary rounded-DEFAULT font-semibold" data-category="quantum-hpc">QUANTUM &amp; HPC [4]</button>
+            <button class="paper-filter-btn px-3 py-1 font-label-mono-sm text-label-mono-sm text-text-dim hover:text-text-primary rounded-DEFAULT font-semibold" data-category="biomedical">BIOMEDICAL AI [3]</button>
+            <button class="paper-filter-btn px-3 py-1 font-label-mono-sm text-label-mono-sm text-text-dim hover:text-text-primary rounded-DEFAULT font-semibold" data-category="finance-applied">APPLIED ML &amp; CYBER [3]</button>
+          </div>
+        </div>
+
+        <!-- Dynamic Papers Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg" id="research-papers-container">
+          <!-- Injected dynamically by script.js using researchData.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: SCHOLARLY SERVICE & PEER REVIEW SPOTLIGHT -->
+    <section class="w-full py-space-2xl bg-surface-base" id="reviews">
+      <div class="max-w-7xl mx-auto px-gutter flex flex-col gap-space-xl">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+          <div class="flex flex-col gap-1">
+            <div class="flex items-center gap-2 font-label-mono-sm text-label-mono-sm text-status-active uppercase tracking-widest font-semibold">
+              <span class="material-symbols-outlined text-[16px]">verified_user</span> SCHOLARLY SERVICE &amp; EDITORIAL PEER REVIEW
+            </div>
+            <h2 class="font-headline-lg text-headline-lg text-text-primary font-bold tracking-tight">
+              Verified Peer Reviewer for Top-Tier Elsevier &amp; IEEE Venues
+            </h2>
+            <p class="font-body-md text-body-md text-text-muted max-w-2xl mt-1">
+              Active referee service evaluating algorithmic rigor, theoretical soundness, and empirical validity across high-impact international artificial intelligence journals and conferences.
+            </p>
+          </div>
+          <div class="flex items-center gap-space-sm shrink-0">
+            <a class="inline-flex items-center gap-1.5 px-4 py-2 bg-surface-raised hover:bg-surface-overlay text-primary font-label-mono-sm text-label-mono-sm rounded-DEFAULT border border-border-subtle transition-colors font-semibold" href="reviews.html">
+              <span>View Full Editorial Dossier</span>
+              <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Telemetry Review Stats Strip -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-space-md bg-surface-raised p-space-md rounded-DEFAULT border border-border-subtle shadow-md">
+          <div class="flex flex-col">
+            <span class="font-label-mono-sm text-text-dim uppercase">Total Verified Reviews</span>
+            <span class="font-metric-stat text-metric-stat text-status-active mt-1">47</span>
+            <span class="font-label-mono-sm text-text-muted text-[11px]">Official certificates on file</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-label-mono-sm text-text-dim uppercase">Elsevier EAAI Journal</span>
+            <span class="font-metric-stat text-metric-stat text-primary mt-1">43</span>
+            <span class="font-label-mono-sm text-text-muted text-[11px]">Q1 AI Journal (Oct 2025–2026)</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-label-mono-sm text-text-dim uppercase">Medical Pathology AI</span>
+            <span class="font-metric-stat text-metric-stat text-secondary mt-1">1</span>
+            <span class="font-label-mono-sm text-text-muted text-[11px]">Journal of Pathology Informatics</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-label-mono-sm text-text-dim uppercase">IEEE Conferences</span>
+            <span class="font-metric-stat text-metric-stat text-status-warning mt-1">3</span>
+            <span class="font-label-mono-sm text-text-muted text-[11px]">ICECCME 2026 &amp; ACDSA 2027</span>
+          </div>
+        </div>
+
+        <!-- Review Certificates Cards Grid (All 5 in 1 line on desktop) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-space-sm" id="reviews-grid-container">
+          <!-- Injected dynamically by script.js using reviewsData.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: PROFILE DOSSIER & SYSTEM STACK -->
+    <section class="w-full py-space-2xl bg-surface-raised/40 border-t border-border-subtle" id="stack">
+      <div class="max-w-7xl mx-auto px-gutter grid grid-cols-1 lg:grid-cols-12 gap-space-xl">
+        <!-- Left Column: The Builder Behind the Screen -->
+        <div class="lg:col-span-5 flex flex-col gap-space-lg">
+          <div class="flex flex-col gap-2">
+            <span class="font-label-mono-sm text-label-mono-sm text-primary uppercase tracking-widest font-semibold">
+              PROFILE DOSSIER // ARCHITECTURE
+            </span>
+            <h2 class="font-headline-lg text-headline-lg text-text-primary font-bold tracking-tight">
+              The builder behind the screen
+            </h2>
+          </div>
+          
+          <div class="bg-surface-raised p-space-lg rounded-DEFAULT flex flex-col gap-space-md shadow-md border border-border-subtle">
+            <div class="flex flex-col gap-1">
+              <span class="font-label-mono-sm text-label-mono-sm text-text-dim uppercase font-semibold">01. Core Focus</span>
+              <p class="font-body-md text-body-md text-on-surface">
+                AI for Science, self-supervised representation learning, large language models with vector retrieval validation, high-performance computing, and reproducible machine learning systems.
+              </p>
+            </div>
+            <div class="p-space-md bg-surface-overlay rounded-DEFAULT flex flex-col gap-1 border border-border-subtle">
+              <span class="font-label-mono-sm text-label-mono-sm text-primary uppercase font-semibold">02. Operating Mode</span>
+              <p class="font-body-md text-body-md text-text-primary italic">
+                “Research rigor with production discipline: benchmark deeply, optimize hard, document clearly, and ship systems that scale.”
+              </p>
+            </div>
+            <div class="flex flex-col gap-1">
+              <span class="font-label-mono-sm text-label-mono-sm text-text-dim uppercase font-semibold">03. Philosophy on Hardware &amp; Models</span>
+              <p class="font-body-md text-body-md text-on-surface-variant">
+                A model is only as good as its execution context. Designing algorithms that natively conform to memory hierarchies, SLURM batch constraints, and GPU interconnects is the difference between theoretical math and applied discovery.
+              </p>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-space-sm pt-2 border-t border-border-subtle font-label-mono-sm text-[12px]">
+              <div class="flex items-center gap-1.5 text-text-muted">
+                <span class="material-symbols-outlined text-status-active text-[16px]">verified</span> Fully Reproducible ML
+              </div>
+              <div class="flex items-center gap-1.5 text-text-muted">
+                <span class="material-symbols-outlined text-status-active text-[16px]">verified</span> HPC Cluster Native
+              </div>
+              <div class="flex items-center gap-1.5 text-text-muted">
+                <span class="material-symbols-outlined text-status-active text-[16px]">verified</span> SaaS Scaled (7 Clients)
+              </div>
+              <div class="flex items-center gap-1.5 text-text-muted">
+                <span class="material-symbols-outlined text-status-active text-[16px]">verified</span> Open Source Contributor
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Interactive System Stack Matrix -->
+        <div class="lg:col-span-7 flex flex-col gap-space-lg">
+          <div class="flex flex-col gap-2">
+            <span class="font-label-mono-sm text-label-mono-sm text-secondary uppercase tracking-widest font-semibold">
+              SYSTEM STACK // PRODUCTION &amp; RESEARCH INVENTORY
+            </span>
+            <h2 class="font-headline-lg text-headline-lg text-text-primary font-bold tracking-tight">
+              Skills architecture
+            </h2>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+            <!-- Languages -->
+            <div class="bg-surface-raised p-space-md rounded-DEFAULT flex flex-col gap-space-sm border border-border-subtle">
+              <div class="flex items-center justify-between pb-1">
+                <div class="flex items-center gap-2 font-label-mono-md text-label-mono-md text-text-primary font-semibold">
+                  <span class="material-symbols-outlined text-primary text-[18px]">code</span>
+                  <span>Languages</span>
+                </div>
+                <span class="font-label-mono-sm text-label-mono-sm text-text-dim">5 Core</span>
+              </div>
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                <span class="font-label-mono-sm text-[11px] px-2.5 py-1 bg-surface-base text-text-primary rounded-DEFAULT">Python (NumPy, SciPy)</span>
+                <span class="font-label-mono-sm text-[11px] px-2.5 py-1 bg-surface-base text-text-primary rounded-DEFAULT">Rust</span>
+                <span class="font-label-mono-sm text-[11px] px-2.5 py-1 bg-surface-base text-text-primary rounded-DEFAULT">SQL (PostgreSQL, Spark)</span>
+                <span class="font-label-mono-sm text-[11px] px-2.5 py-1 bg-surface-base text-text-primary rounded-DEFAULT">C++ / CUDA C</span>
+                <span class="font-label-mono-sm text-[11px] px-2.5 py-1 bg-surface-base text-text-primary rounded-DEFAULT">Java</span>
+              </div>
+            </div>
+
+            <!-- Distributed & Big Data -->
+            <div class="bg-surface-raised p-space-md rounded-DEFAULT flex flex-col gap-space-sm border border-border-subtle">
+              <div class="flex items-center justify-between pb-1">
+                <div class="flex items-center gap-2 font-label-mono-md text-label-mono-md text-text-primary font-semibold">
+                  <span class="material-symbols-outlined text-secondary text-[18px]">hub</span>
+                  <span>Distributed &amp; Big Data</span>
+                </div>
+                <span class="font-label-mono-sm text-label-mono-sm text-text-dim">HPC / Cloud</span>
+              </div>
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                <span class="font-label-mono-sm text-[11px] px-2.5 py-1 bg-surface-base text-text-primary rounded-DEFAULT">PySpark</span>
+                <span class="font-label-mono-sm text-[11px] px-2.5 py-1 bg-surface-base text-text-primary rounded-DEFAULT">Azure Databricks</span>
+                <span class="font-label-mono-sm text-[11px] px-2.5 py-1 bg-surface-base text-text-primary rounded-DEFAULT">SLURM Workload Mgr</span>
+                <span class="font-label-mono-sm text-[11px] px-2.5 py-1 bg-surface-base text-text-primary rounded-DEFAULT">Ray Distributed</span>
+                <span class="font-label-mono-sm text-[11px] px-2.5 py-1 bg-surface-base text-text-primary rounded-DEFAULT">Apache Airflow</span>
+              </div>
+            </div>
+
+            <!-- Deep Learning & AI -->
+            <div class="bg-surface-raised p-space-md rounded-DEFAULT flex flex-col gap-space-sm border border-border-subtle">
+              <div class="flex items-center justify-between pb-1">
+                <div class="flex items-center gap-2 font-label-mono-md text-label-mono-md text-text-primary font-semibold">
+                  <span class="material-symbols-outlined text-primary-container text-[18px]">psychology</span>
+                  <span>Deep Learning &amp; AI</span>
+                </div>
+                <span class="font-label-mono-sm text-label-mono-sm text-text-dim">Frameworks</span>
+              </div>
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                <span class="font-label-mono-sm text-[11px] px-2.5 py-1 bg-surface-base text-text-primary rounded-DEFAULT">PyTorch &amp; Lightning</span>
+                <span class="font-label-mono-sm text-[11px] px-2.5 py-1 bg-surface-base text-text-primary rounded-DEFAULT">TensorFlow</span>
+                <span class="font-label-mono-sm text-[11px] px-2.5 py-1 bg-surface-base text-text-primary rounded-DEFAULT">LangChain &amp; Agents</span>
+                <span class="font-label-mono-sm text-[11px] px-2.5 py-1 bg-surface-base text-text-primary rounded-DEFAULT">ChromaDB &amp; Neo4j</span>
+                <span class="font-label-mono-sm text-[11px] px-2.5 py-1 bg-surface-base text-text-primary rounded-DEFAULT">MLflow &amp; W&amp;B</span>
+              </div>
+            </div>
+
+            <!-- Cloud & Infrastructure -->
+            <div class="bg-surface-raised p-space-md rounded-DEFAULT flex flex-col gap-space-sm border border-border-subtle">
+              <div class="flex items-center justify-between pb-1">
+                <div class="flex items-center gap-2 font-label-mono-md text-label-mono-md text-text-primary font-semibold">
+                  <span class="material-symbols-outlined text-status-warning text-[18px]">dns</span>
+                  <span>Cloud &amp; Infrastructure</span>
+                </div>
+                <span class="font-label-mono-sm text-label-mono-sm text-text-dim">Ops</span>
+              </div>
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                <span class="font-label-mono-sm text-[11px] px-2.5 py-1 bg-surface-base text-text-primary rounded-DEFAULT">AWS (EC2, S3, SageMaker)</span>
+                <span class="font-label-mono-sm text-[11px] px-2.5 py-1 bg-surface-base text-text-primary rounded-DEFAULT">Docker &amp; Containers</span>
+                <span class="font-label-mono-sm text-[11px] px-2.5 py-1 bg-surface-base text-text-primary rounded-DEFAULT">Linux/Unix Architecture</span>
+                <span class="font-label-mono-sm text-[11px] px-2.5 py-1 bg-surface-base text-text-primary rounded-DEFAULT">CI/CD Git Workflows</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Terminal Shell Prompt Box -->
+          <div class="p-space-md bg-surface-base rounded-DEFAULT font-label-mono-sm text-label-mono-sm flex flex-col gap-1.5 border border-border-subtle">
+            <div class="flex items-center justify-between text-text-dim pb-1">
+              <span class="flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-error inline-block"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-status-warning inline-block"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-status-active inline-block"></span>
+                <span class="ml-2 text-text-primary">bash -- bash-session-active</span>
+              </span>
+              <span class="text-primary font-semibold">ansari@ascend-node04:~$</span>
+            </div>
+            <p class="text-primary-fixed pt-1">&gt; torch.cuda.is_available() &amp;&amp; sbatch --partition=ascend-gpu --nodes=4 --gpus=16</p>
+            <p class="text-text-muted">[OK] Slurm cluster allocation verified. 16x NVIDIA A100 Tensor Core GPUs linked via NVLink (600 GB/s).</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: CAREER ARC / EXPERIENCE TIMELINE -->
+    <section class="w-full py-space-2xl bg-surface-base" id="experience">
+      <div class="max-w-7xl mx-auto px-gutter flex flex-col gap-space-xl">
+        <div class="flex flex-col gap-2">
+          <span class="font-label-mono-sm text-label-mono-sm text-primary uppercase tracking-widest font-semibold">
+            CAREER ARC // SCIENTIFIC &amp; PRODUCTION APPOINTMENTS
+          </span>
+          <h2 class="font-headline-lg text-headline-lg text-text-primary font-bold tracking-tight">
+            Experience timeline
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-lg">
+          <!-- Wright State -->
+          <div class="bg-surface-raised p-space-lg rounded-DEFAULT flex flex-col justify-between gap-space-md relative overflow-hidden group hover:bg-surface-overlay transition-colors border border-border-subtle">
+            <div class="flex items-center justify-between">
+              <span class="font-label-mono-sm text-label-mono-sm px-2.5 py-0.5 bg-status-active/10 text-status-active rounded-DEFAULT uppercase font-semibold">
+                JAN 2026 – PRESENT
+              </span>
+              <span class="w-2 h-2 rounded-full bg-status-active animate-pulse"></span>
+            </div>
+            <div class="flex flex-col gap-1">
+              <h3 class="font-headline-md text-headline-md text-text-primary font-bold">Wright State University</h3>
+              <span class="font-label-mono-md text-label-mono-md text-primary font-medium">Research Assistant</span>
+              <p class="font-body-md text-body-md text-on-surface-variant pt-2 leading-relaxed">
+                Architected 19-stage HPC ETL pipeline for 356 RNA-Seq samples (15M+ read pairs) via SLURM on OSC supercomputer. Engineered generative AI benchmarking (7 models) and developed DDFF achieving 99.7% dimensionality reduction in O(pn) time (IEEE ICMLA 2026).
+              </p>
+            </div>
+            <div class="flex items-center gap-1.5 font-label-mono-sm text-label-mono-sm text-text-dim pt-2 border-t border-border-subtle">
+              <span class="material-symbols-outlined text-[16px]">location_on</span> Dayton, OH
+            </div>
+          </div>
+
+          <!-- The University of Toledo -->
+          <div class="bg-surface-raised p-space-lg rounded-DEFAULT flex flex-col justify-between gap-space-md relative overflow-hidden group hover:bg-surface-overlay transition-colors border border-border-subtle">
+            <div class="flex items-center justify-between">
+              <span class="font-label-mono-sm text-label-mono-sm px-2.5 py-0.5 bg-surface-container text-text-muted rounded-DEFAULT uppercase font-semibold">
+                AUG 2023 – APR 2025
+              </span>
+              <span class="material-symbols-outlined text-text-dim text-[16px]">check</span>
+            </div>
+            <div class="flex flex-col gap-1">
+              <h3 class="font-headline-md text-headline-md text-text-primary font-bold">The University of Toledo</h3>
+              <span class="font-label-mono-md text-label-mono-md text-text-primary font-medium">Research Assistant · Transportation Systems &amp; HPC Labs</span>
+              <p class="font-body-md text-body-md text-on-surface-variant pt-2 leading-relaxed">
+                Delivered predictive crash-severity models for Ohio DOT across 37,000+ geospatial records (published state report FHWA/OH-2025/19). Accelerated GPU execution by 8.5% and cut DL training time by 50% on SLURM clusters, cutting carbon footprint by 5%.
+              </p>
+            </div>
+            <div class="flex items-center gap-1.5 font-label-mono-sm text-label-mono-sm text-text-dim pt-2 border-t border-border-subtle">
+              <span class="material-symbols-outlined text-[16px]">location_on</span> Toledo, OH
+            </div>
+          </div>
+
+          <!-- Orcinus IT Solutions -->
+          <div class="bg-surface-raised p-space-lg rounded-DEFAULT flex flex-col justify-between gap-space-md relative overflow-hidden group hover:bg-surface-overlay transition-colors border border-border-subtle">
+            <div class="flex items-center justify-between">
+              <span class="font-label-mono-sm text-label-mono-sm px-2.5 py-0.5 bg-surface-container text-text-muted rounded-DEFAULT uppercase font-semibold">
+                MAY 2018 – DEC 2022
+              </span>
+              <span class="material-symbols-outlined text-status-active text-[16px]">trending_up</span>
+            </div>
+            <div class="flex flex-col gap-1">
+              <h3 class="font-headline-md text-headline-md text-text-primary font-bold">Orcinus IT Solutions Pvt Ltd</h3>
+              <span class="font-label-mono-md text-label-mono-md text-text-primary font-medium">Technical Lead</span>
+              <p class="font-body-md text-body-md text-on-surface-variant pt-2 leading-relaxed">
+                Reduced data pipeline latency by up to 35% for 7 SaaS enterprise clients by designing and deploying end-to-end ML solutions and scalable ETL workflows using Apache Airflow, PySpark, and Azure. Improved model reliability by 30% via MLOps.
+              </p>
+            </div>
+            <div class="flex items-center gap-1.5 font-label-mono-sm text-label-mono-sm text-text-dim pt-2 border-t border-border-subtle">
+              <span class="material-symbols-outlined text-[16px]">location_on</span> Srinagar, India
+            </div>
+          </div>
+
+          <!-- MyFajir IT Solutions -->
+          <div class="bg-surface-raised p-space-lg rounded-DEFAULT flex flex-col justify-between gap-space-md relative overflow-hidden group hover:bg-surface-overlay transition-colors border border-border-subtle">
+            <div class="flex items-center justify-between">
+              <span class="font-label-mono-sm text-label-mono-sm px-2.5 py-0.5 bg-surface-container text-text-muted rounded-DEFAULT uppercase font-semibold">
+                SEP 2017 – MAR 2020
+              </span>
+              <span class="material-symbols-outlined text-text-dim text-[16px]">security</span>
+            </div>
+            <div class="flex flex-col gap-1">
+              <h3 class="font-headline-md text-headline-md text-text-primary font-bold">MyFajir IT Solutions Pvt Ltd</h3>
+              <span class="font-label-mono-md text-label-mono-md text-text-primary font-medium">Senior Engineer, then Consultant</span>
+              <p class="font-body-md text-body-md text-on-surface-variant pt-2 leading-relaxed">
+                Processed 800+ daily transactions at 99.9% uptime by architecting production-grade RESTful APIs (Flask/FastAPI) and interactive analytics dashboards. Engineered cloud ERP platform on Azure reducing client operational overhead by 20%.
+              </p>
+            </div>
+            <div class="flex items-center gap-1.5 font-label-mono-sm text-label-mono-sm text-text-dim pt-2 border-t border-border-subtle">
+              <span class="material-symbols-outlined text-[16px]">location_on</span> Srinagar, India
+            </div>
+          </div>
+
+          <!-- PanunKart.com -->
+          <div class="bg-surface-raised p-space-lg rounded-DEFAULT flex flex-col justify-between gap-space-md relative overflow-hidden group hover:bg-surface-overlay transition-colors border border-border-subtle">
+            <div class="flex items-center justify-between">
+              <span class="font-label-mono-sm text-label-mono-sm px-2.5 py-0.5 bg-surface-container text-text-muted rounded-DEFAULT uppercase font-semibold">
+                AUG 2013 – SEP 2017
+              </span>
+              <span class="material-symbols-outlined text-text-dim text-[16px]">store</span>
+            </div>
+            <div class="flex flex-col gap-1">
+              <h3 class="font-headline-md text-headline-md text-text-primary font-bold">PanunKart.com</h3>
+              <span class="font-label-mono-md text-label-mono-md text-text-primary font-medium">Business Operations Lead</span>
+              <p class="font-body-md text-body-md text-on-surface-variant pt-2 leading-relaxed">
+                Drove 150% sales growth by designing and implementing an empirical data strategy grounded in rigorous A/B testing and customer market segmentation analysis, improving data-driven decision-making.
+              </p>
+            </div>
+            <div class="flex items-center gap-1.5 font-label-mono-sm text-label-mono-sm text-text-dim pt-2 border-t border-border-subtle">
+              <span class="material-symbols-outlined text-[16px]">location_on</span> Srinagar, India
+            </div>
+          </div>
+
+          <!-- Lamar University -->
+          <div class="bg-surface-raised p-space-lg rounded-DEFAULT flex flex-col justify-between gap-space-md relative overflow-hidden group hover:bg-surface-overlay transition-colors border border-border-subtle">
+            <div class="flex items-center justify-between">
+              <span class="font-label-mono-sm text-label-mono-sm px-2.5 py-0.5 bg-surface-container text-text-muted rounded-DEFAULT uppercase font-semibold">
+                FEB 2023 – AUG 2023
+              </span>
+              <span class="material-symbols-outlined text-text-dim text-[16px]">sensors</span>
+            </div>
+            <div class="flex flex-col gap-1">
+              <h3 class="font-headline-md text-headline-md text-text-primary font-bold">Lamar University</h3>
+              <span class="font-label-mono-md text-label-mono-md text-text-primary font-medium">Graduate Research Assistant</span>
+              <p class="font-body-md text-body-md text-on-surface-variant pt-2 leading-relaxed">
+                Sensor telemetry calibration, hardware telemetry analytics, validation testing, and sensor-stream data analytics for continuous outdoor automated weather station deployments.
+              </p>
+            </div>
+            <div class="flex items-center gap-1.5 font-label-mono-sm text-label-mono-sm text-text-dim pt-2 border-t border-border-subtle">
+              <span class="material-symbols-outlined text-[16px]">location_on</span> Beaumont, TX
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: ACADEMIC CREDENTIALS & DEGREES (CERTIFICATES DEDICATED TO CERTIFICATIONS.HTML) -->
+    <section class="w-full py-space-2xl bg-surface-raised/40 border-t border-border-subtle" id="education">
+      <div class="max-w-7xl mx-auto px-gutter grid grid-cols-1 lg:grid-cols-12 gap-space-xl">
+        <div class="lg:col-span-8 flex flex-col gap-space-md">
+          <div class="flex flex-col gap-1">
+            <span class="font-label-mono-sm text-label-mono-sm text-secondary uppercase font-semibold tracking-wider">
+              ACADEMIC FOUNDATION // HIGHER EDUCATION
+            </span>
+            <h2 class="font-headline-lg text-headline-lg text-text-primary font-bold tracking-tight">
+              Formal Degrees &amp; Institutional Credentials
+            </h2>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+            <!-- Degree 1 -->
+            <div class="bg-surface-raised p-space-lg rounded-DEFAULT flex flex-col justify-between gap-space-sm border border-border-subtle shadow-md">
+              <div class="flex flex-col gap-1">
+                <span class="font-label-mono-sm text-[11px] text-status-active bg-status-active/10 px-2 py-0.5 rounded uppercase font-semibold self-start">
+                  GPA: 3.91 / 4.00
+                </span>
+                <h3 class="font-headline-md text-[18px] text-text-primary font-bold mt-1">
+                  M.S. in Computer Science &amp; Engineering
+                </h3>
+                <span class="font-label-mono-sm text-primary font-semibold">Artificial Intelligence Track</span>
+                <span class="font-body-md text-[13px] text-text-muted">The University of Toledo · Toledo, Ohio, USA</span>
+                <span class="font-label-mono-sm text-[11px] text-text-dim">August 2023 – August 2025</span>
+              </div>
+              <p class="font-body-md text-[13px] text-on-surface-variant pt-2 border-t border-border-subtle">
+                Core Focus: High-Performance Distributed Computing, AI for Science, Quantum Circuit Knitting, Parallel Model Partitioning.
+              </p>
+            </div>
+
+            <!-- Degree 2 -->
+            <div class="bg-surface-raised p-space-lg rounded-DEFAULT flex flex-col justify-between gap-space-sm border border-border-subtle shadow-md">
+              <div class="flex flex-col gap-1">
+                <span class="font-label-mono-sm text-[11px] text-secondary bg-secondary/10 px-2 py-0.5 rounded uppercase font-semibold self-start">
+                  Conferred with Honors
+                </span>
+                <h3 class="font-headline-md text-[18px] text-text-primary font-bold mt-1">
+                  B.Tech. in Electronics &amp; Communication
+                </h3>
+                <span class="font-label-mono-sm text-secondary font-semibold">Engineering Systems</span>
+                <span class="font-body-md text-[13px] text-text-muted">National Institute of Technology (NIT) · Srinagar, India</span>
+                <span class="font-label-mono-sm text-[11px] text-text-dim">July 2009 – July 2013</span>
+              </div>
+              <p class="font-body-md text-[13px] text-on-surface-variant pt-2 border-t border-border-subtle">
+                Core Focus: Digital Signal Processing, Information &amp; Communication Theory, Stochastic Modeling, Embedded Architectures.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dedicated Link to Certifications Page -->
+        <div class="lg:col-span-4 bg-surface-raised p-space-lg rounded-DEFAULT flex flex-col justify-between gap-space-md border border-border-subtle shadow-xl">
+          <div class="flex flex-col gap-2">
+            <span class="font-label-mono-sm text-label-mono-sm text-primary uppercase font-semibold tracking-wider flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-[16px]">workspace_premium</span> AUDITED CREDENTIALS
+            </span>
+            <h3 class="font-headline-md text-headline-md text-text-primary font-bold">
+              35+ Professional Certifications &amp; Coursework
+            </h3>
+            <p class="font-body-md text-[13px] text-on-surface-variant leading-relaxed">
+              In accordance with portfolio guidelines, the complete verified inventory of Stanford, Duke, UC Davis, and LinkedIn Learning certifications is hosted on its dedicated credentials page with live certificate thumbnail previews and on-demand modal loading.
+            </p>
+          </div>
+          <a class="w-full inline-flex items-center justify-center gap-2 bg-primary-container hover:bg-primary-fixed-dim text-on-primary font-label-mono-md text-label-mono-md py-3 px-4 rounded-DEFAULT transition-all font-semibold shadow-md" href="certifications.html">
+            <span>&gt; Open Certifications Directory</span>
+            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: SCHOLAR & REPOSITORY MATRIX -->
+    <section class="w-full py-space-2xl bg-surface-base border-t border-border-subtle">
+      <div class="max-w-7xl mx-auto px-gutter flex flex-col gap-space-2xl">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl">
+          <!-- Google Scholar Card -->
+          <div class="lg:col-span-6 bg-surface-raised p-space-lg rounded-DEFAULT flex flex-col justify-between gap-space-md shadow-md border border-border-subtle">
+            <div class="flex flex-col gap-space-sm">
+              <div class="flex items-center justify-between pb-space-xs">
+                <span class="font-label-mono-sm text-label-mono-sm text-primary uppercase font-semibold tracking-wider flex items-center gap-1.5">
+                  <span class="material-symbols-outlined text-[16px]">school</span> GOOGLE SCHOLAR PROFILE
+                </span>
+                <span class="font-label-mono-sm text-label-mono-sm px-2 py-0.5 bg-primary/10 text-primary rounded-DEFAULT">LIVE SYNC</span>
+              </div>
+              <h3 class="font-headline-md text-headline-md text-text-primary font-bold">
+                Mufakir Qamar Ansari
+              </h3>
+              <p class="font-body-md text-body-md text-on-surface-variant">
+                Google Scholar verified profile connected for scheduled citation footprint and preprint metric ingestion. Focus domains include AI for Science, HPC acceleration, and quantum circuit knitting.
+              </p>
+              <div class="flex flex-wrap gap-1.5 py-1">
+                <span class="font-label-mono-sm text-[11px] px-2 py-0.5 bg-surface-container text-text-muted rounded-DEFAULT">AI for Science</span>
+                <span class="font-label-mono-sm text-[11px] px-2 py-0.5 bg-surface-container text-text-muted rounded-DEFAULT">HPC</span>
+                <span class="font-label-mono-sm text-[11px] px-2 py-0.5 bg-surface-container text-text-muted rounded-DEFAULT">Computer Vision</span>
+                <span class="font-label-mono-sm text-[11px] px-2 py-0.5 bg-surface-container text-text-muted rounded-DEFAULT">Scientific ML</span>
+                <span class="font-label-mono-sm text-[11px] px-2 py-0.5 bg-surface-container text-text-muted rounded-DEFAULT">LLMs</span>
+              </div>
+              <div class="grid grid-cols-3 gap-space-sm bg-surface-base p-space-sm rounded-DEFAULT text-center font-label-mono-sm text-label-mono-sm border border-border-subtle">
+                <!-- Google Scholar Citations Count: Update this number here in the future -->
+                <div class="flex flex-col">
+                  <span class="text-text-dim uppercase text-[10px]">Citations</span>
+                  <span id="scholar-citations" class="text-text-primary font-bold text-label-mono-lg">50+</span>
+                </div>
+                <div class="flex flex-col">
+                  <span class="text-text-dim uppercase text-[10px]">h-index</span>
+                  <span class="text-text-primary font-bold text-label-mono-lg">3</span>
+                </div>
+                <div class="flex flex-col">
+                  <span class="text-text-dim uppercase text-[10px]">i10-index</span>
+                  <span class="text-text-primary font-bold text-label-mono-lg">1</span>
+                </div>
+              </div>
+            </div>
+            <a class="inline-flex items-center justify-center gap-2 bg-surface-overlay hover:bg-surface-container text-primary font-label-mono-sm text-label-mono-sm px-4 py-2.5 rounded-DEFAULT transition-colors border border-border-subtle font-semibold" href="https://scholar.google.com/citations?user=8gNxoaAAAAAJ&amp;hl=en" rel="noreferrer" target="_blank">
+              <span>&gt; Open Google Scholar Verified Record</span>
+              <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+            </a>
+          </div>
+
+          <!-- Public GitHub Repo Matrix Card -->
+          <div class="lg:col-span-6 bg-surface-raised p-space-lg rounded-DEFAULT flex flex-col justify-between gap-space-md shadow-md border border-border-subtle">
+            <div class="flex flex-col gap-space-sm">
+              <div class="flex items-center justify-between pb-space-xs">
+                <span class="font-label-mono-sm text-label-mono-sm text-status-active uppercase font-semibold tracking-wider flex items-center gap-1.5">
+                  <span class="material-symbols-outlined text-[16px]">code</span> GITHUB CODEBASE MATRIX
+                </span>
+                <span class="font-label-mono-sm text-label-mono-sm px-2 py-0.5 bg-status-active/10 text-status-active rounded-DEFAULT">11 REPOS</span>
+              </div>
+              <h3 class="font-headline-md text-headline-md text-text-primary font-bold">
+                Open Source &amp; Research Tooling
+              </h3>
+              <p class="font-body-md text-body-md text-on-surface-variant">
+                Full-stack implementations spanning distributed bioinformatics pipelines, quantum bisection schedulers, probabilistic day-ahead energy forecasting, and self-supervised medical image classifiers.
+              </p>
+              <div class="space-y-2 pt-1 font-label-mono-sm text-[12px]">
+                <div class="p-2 bg-surface-base rounded flex items-center justify-between border border-border-subtle">
+                  <span class="text-text-primary font-semibold">MufakirAnsari/DDFF-Framework</span>
+                  <span class="text-primary">Python · O(pn)</span>
+                </div>
+                <div class="p-2 bg-surface-base rounded flex items-center justify-between border border-border-subtle">
+                  <span class="text-text-primary font-semibold">MufakirAnsari/DynaCut</span>
+                  <span class="text-secondary">Qiskit · Tensor Networks</span>
+                </div>
+                <div class="p-2 bg-surface-base rounded flex items-center justify-between border border-border-subtle">
+                  <span class="text-text-primary font-semibold">MufakirAnsari/Energy-Cost-Prediction</span>
+                  <span class="text-status-warning">PyTorch · Conformal</span>
+                </div>
+              </div>
+            </div>
+            <a class="inline-flex items-center justify-center gap-2 bg-surface-overlay hover:bg-surface-container text-text-primary font-label-mono-sm text-label-mono-sm px-4 py-2.5 rounded-DEFAULT transition-colors border border-border-subtle font-semibold" href="https://github.com/MufakirAnsari" rel="noreferrer" target="_blank">
+              <span class="material-symbols-outlined text-[16px]">terminal</span>
+              <span>&gt; Explore GitHub (github.com/MufakirAnsari)</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: CONTACT & DISPATCH PROTOCOL -->
+    <section class="w-full py-space-2xl bg-surface-raised/60 border-t border-border-subtle" id="contact">
+      <div class="max-w-7xl mx-auto px-gutter grid grid-cols-1 lg:grid-cols-12 gap-space-xl">
+        <div class="lg:col-span-5 flex flex-col justify-between gap-space-lg">
+          <div class="flex flex-col gap-space-md">
+            <div class="flex flex-col gap-2">
+              <span class="font-label-mono-sm text-label-mono-sm text-primary uppercase tracking-widest font-semibold">
+                COMMUNICATION CHANNEL // HANDSHAKE
+              </span>
+              <h2 class="font-headline-lg text-headline-lg text-text-primary font-bold tracking-tight">
+                Let’s build serious AI systems.
+              </h2>
+            </div>
+            <p class="font-body-md text-body-md text-on-surface-variant">
+              Open to relocation within the United States. Actively seeking AI research appointments, high-throughput machine learning engineering roles, scientific computing collaborations, and high-leverage product engineering.
+            </p>
+            <div class="flex flex-col gap-space-sm pt-2">
+              <a class="p-space-md bg-surface-raised hover:bg-surface-overlay rounded-DEFAULT flex items-center justify-between group transition-colors border border-border-subtle" href="mailto:mufakirqamaransari@gmail.com">
+                <div class="flex items-center gap-3">
+                  <span class="material-symbols-outlined text-primary text-[20px]">mail</span>
+                  <div class="flex flex-col">
+                    <span class="font-label-mono-sm text-label-mono-sm text-text-dim uppercase">Primary Transmission</span>
+                    <span class="font-label-mono-md text-label-mono-md text-text-primary font-semibold">mufakirqamaransari@gmail.com</span>
+                  </div>
+                </div>
+                <span class="material-symbols-outlined text-text-dim group-hover:text-primary text-[18px]">arrow_forward</span>
+              </a>
+
+              <div class="grid grid-cols-2 gap-space-sm font-label-mono-sm text-label-mono-sm">
+                <a class="p-space-sm bg-surface-raised hover:bg-surface-overlay rounded-DEFAULT flex items-center gap-2 text-text-muted hover:text-text-primary transition-colors border border-border-subtle" href="https://www.linkedin.com/in/mufakir/" rel="noreferrer" target="_blank">
+                  <span class="material-symbols-outlined text-[16px] text-primary">link</span>
+                  <span>LinkedIn Profile</span>
+                </a>
+                <a class="p-space-sm bg-surface-raised hover:bg-surface-overlay rounded-DEFAULT flex items-center gap-2 text-text-muted hover:text-text-primary transition-colors border border-border-subtle" href="https://github.com/MufakirAnsari" rel="noreferrer" target="_blank">
+                  <span class="material-symbols-outlined text-[16px] text-status-active">code</span>
+                  <span>GitHub Repos</span>
+                </a>
+                <a class="p-space-sm bg-surface-raised hover:bg-surface-overlay rounded-DEFAULT flex items-center gap-2 text-text-muted hover:text-text-primary transition-colors border border-border-subtle" href="https://scholar.google.com/citations?user=8gNxoaAAAAAJ&amp;hl=en" rel="noreferrer" target="_blank">
+                  <span class="material-symbols-outlined text-[16px] text-secondary">school</span>
+                  <span>Google Scholar</span>
+                </a>
+                <div class="p-space-sm bg-surface-raised rounded-DEFAULT flex items-center gap-2 text-status-active font-semibold border border-border-subtle">
+                  <span class="w-2 h-2 rounded-full bg-status-active"></span>
+                  <span>Ready to Relocate</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="p-space-md bg-surface-base rounded-DEFAULT font-label-mono-sm text-[11px] text-text-dim border border-border-subtle">
+            <span>REPRODUCIBLE RESEARCH PROTOCOL ACTIVE · TLS 1.3 ENCRYPTION</span>
+          </div>
+        </div>
+
+        <!-- Terminal Form -->
+        <div class="lg:col-span-7 bg-surface-raised p-space-lg rounded-DEFAULT shadow-xl flex flex-col gap-space-md border border-border-subtle">
+          <div class="flex items-center justify-between pb-space-xs">
+            <span class="font-label-mono-sm text-label-mono-sm text-text-dim uppercase flex items-center gap-2 font-semibold">
+              <span class="material-symbols-outlined text-[16px] text-primary">send</span> DISPATCH PROTOCOL / REQUEST
+            </span>
+            <div class="flex items-center gap-2">
+              <a href="contact.html" class="hidden sm:inline-flex items-center gap-1 font-label-mono-sm text-[11px] text-primary hover:underline">
+                <span class="material-symbols-outlined text-[13px]">open_in_new</span> Standalone Contact Page
+              </a>
+              <span class="font-label-mono-sm text-label-mono-sm text-status-active">AUTHENTICATED</span>
+            </div>
+          </div>
+
+          <form action="https://formsubmit.co/mufakirqamaransari@gmail.com" class="flex flex-col gap-space-md" method="POST" id="collabForm">
+            <input type="hidden" name="_subject" value="[Overview Page] New Collaboration / Contact Dispatch" />
+            <input type="hidden" name="submission_source" value="Overview Page (index.html#contact)" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_template" value="table" />
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+              <div class="flex flex-col gap-1.5">
+                <label class="font-label-mono-sm text-label-mono-sm text-text-dim uppercase" for="callerName">Name / Organization *</label>
+                <input class="w-full bg-surface-base p-space-sm rounded-DEFAULT text-text-primary font-label-mono-sm text-label-mono-sm placeholder:text-text-dim focus:outline-none focus:ring-1 focus:ring-primary border border-border-subtle" id="callerName" name="name" placeholder="e.g. Dr. Eleanor Vance / Research Lab" required="" type="text"/>
+              </div>
+              <div class="flex flex-col gap-1.5">
+                <label class="font-label-mono-sm text-label-mono-sm text-text-dim uppercase" for="callerEmail">Return Email Address *</label>
+                <input class="w-full bg-surface-base p-space-sm rounded-DEFAULT text-text-primary font-label-mono-sm text-label-mono-sm placeholder:text-text-dim focus:outline-none focus:ring-1 focus:ring-primary border border-border-subtle" id="callerEmail" name="email" placeholder="e.g. contact@institution.edu" required="" type="email"/>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+              <div class="flex flex-col gap-1.5">
+                <label class="font-label-mono-sm text-label-mono-sm text-text-dim uppercase" for="projectType">Engagement Type</label>
+                <select class="w-full bg-surface-base p-space-sm rounded-DEFAULT text-text-primary font-label-mono-sm text-label-mono-sm focus:outline-none focus:ring-1 focus:ring-primary border border-border-subtle" id="projectType" name="project_type">
+                  <option value="Full-time AI / Research Appointment">Full-time AI / Research Role</option>
+                  <option value="Data Scientist / ML Engineer">Data Scientist / ML Engineer</option>
+                  <option value="Scientific Research Collaboration">Scientific Research Collaboration</option>
+                  <option value="HPC & Distributed Systems Consulting">HPC &amp; Distributed Systems Consulting</option>
+                  <option value="Freelance Scoped Build">Freelance Scoped Build</option>
+                </select>
+              </div>
+              <div class="flex flex-col gap-1.5">
+                <label class="font-label-mono-sm text-label-mono-sm text-text-dim uppercase" for="timeline">Timeline</label>
+                <select class="w-full bg-surface-base p-space-sm rounded-DEFAULT text-text-primary font-label-mono-sm text-label-mono-sm focus:outline-none focus:ring-1 focus:ring-primary border border-border-subtle" id="timeline" name="timeline">
+                  <option value="Immediate / Open Pipeline">Immediate / Active Pipeline</option>
+                  <option value="Next 30 Days">Next 30 Days</option>
+                  <option value="Quarterly / Exploratory">Quarterly / Exploratory</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="flex flex-col gap-1.5">
+              <label class="font-label-mono-sm text-label-mono-sm text-text-dim uppercase" for="message">Research Brief / Problem Statement *</label>
+              <textarea class="w-full bg-surface-base p-space-sm rounded-DEFAULT text-text-primary font-label-mono-sm text-label-mono-sm placeholder:text-text-dim focus:outline-none focus:ring-1 focus:ring-primary border border-border-subtle" id="message" name="message" placeholder="Outline computational bottleneck, research direction, or team engineering mandate..." required="" rows="4"></textarea>
+            </div>
+
+            <div class="hidden p-space-sm bg-status-active/10 text-status-active rounded-DEFAULT font-label-mono-sm text-label-mono-sm flex items-center gap-2" id="formSuccess">
+              <span class="material-symbols-outlined text-[18px]">task_alt</span>
+              <span>Transmission packet ready. Dispatching securely to Mufakir's verified inbox.</span>
+            </div>
+
+            <button class="inline-flex items-center justify-center gap-2 bg-primary-container hover:bg-primary-fixed-dim text-on-primary font-label-mono-md text-label-mono-md px-6 py-3 rounded-DEFAULT shadow-[0_0_16px_rgba(6,182,212,0.35)] transition-all mt-1 font-semibold" type="submit">
+              <span class="material-symbols-outlined text-[18px]">terminal</span>
+              <span>&gt; Send Contact Request</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="w-full bg-surface-raised border-t border-border-subtle py-space-xl relative z-10">
+    <div class="max-w-7xl mx-auto px-gutter flex flex-col md:flex-row items-center justify-between gap-space-lg">
+      <div class="flex flex-col gap-1 text-center md:text-left">
+        <div class="font-label-mono-md text-label-mono-md text-text-primary font-semibold tracking-wide">MUFAKIR ANSARI // TECHNICAL DOSSIER</div>
+        <div class="font-label-mono-sm text-label-mono-sm text-text-dim">&copy; 2026 Mufakir Ansari · Autonomous Computing &amp; Machine Learning Laboratories.</div>
+      </div>
+      <div class="flex items-center gap-space-lg font-label-mono-sm text-label-mono-sm">
+        <a class="flex items-center gap-1.5 text-text-muted hover:text-primary transition-colors" href="https://github.com/MufakirAnsari" rel="noreferrer" target="_blank">
+          <span class="material-symbols-outlined text-[16px]">code</span><span>GitHub</span>
+        </a>
+        <a class="flex items-center gap-1.5 text-text-muted hover:text-primary transition-colors" href="https://scholar.google.com/citations?user=8gNxoaAAAAAJ&amp;hl=en" rel="noreferrer" target="_blank">
+          <span class="material-symbols-outlined text-[16px]">school</span><span>Scholar</span>
+        </a>
+        <a class="flex items-center gap-1.5 text-text-muted hover:text-primary transition-colors" href="https://www.linkedin.com/in/mufakir/" rel="noreferrer" target="_blank">
+          <span class="material-symbols-outlined text-[16px]">link</span><span>LinkedIn</span>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =======================================================================
+       INTERACTIVE RESEARCH PAPER PROSPECTUS MODAL (POPUP FOR HOMEPAGE PAPERS)
+       ======================================================================= -->
+  <div class="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 hidden bg-surface-base/85 backdrop-blur-md" id="paper-prospectus-modal" role="dialog" aria-modal="true">
+    <div class="bg-surface-raised w-full max-w-4xl max-h-[90vh] rounded-DEFAULT shadow-2xl border border-border-subtle overflow-hidden flex flex-col animate-in fade-in zoom-in-95 duration-150">
+      <!-- Modal Header -->
+      <div class="bg-surface-overlay px-space-lg py-space-md flex items-center justify-between border-b border-border-subtle shrink-0">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-primary text-[20px]">science</span>
+          <span class="font-label-mono-sm text-label-mono-sm text-primary uppercase font-semibold">RESEARCH PROSPECTUS &amp; DETAILED ANALYSIS</span>
+        </div>
+        <button class="text-text-dim hover:text-text-primary p-1.5 rounded hover:bg-surface-raised transition-colors" onclick="closePaperProspectus()" aria-label="Close modal">
+          <span class="material-symbols-outlined text-[22px]">close</span>
+        </button>
+      </div>
+
+      <!-- Modal Scrollable Content -->
+      <div class="p-space-lg sm:p-space-xl overflow-y-auto flex flex-col gap-space-lg">
+        <div>
+          <span class="font-label-mono-sm text-[12px] text-secondary font-semibold block" id="prospectus-modal-venue"></span>
+          <h2 class="font-headline-lg text-[22px] sm:text-headline-lg text-text-primary font-bold mt-1" id="prospectus-modal-title"></h2>
+          <p class="font-label-mono-sm text-[12px] text-text-dim mt-2" id="prospectus-modal-authors"></p>
+          <p class="font-label-mono-sm text-[12px] text-primary mt-0.5" id="prospectus-modal-focus"></p>
+        </div>
+
+        <!-- Quantitative Highlights Grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-space-sm" id="prospectus-modal-stats"></div>
+
+        <!-- 6-8 Points Comprehensive Breakdown -->
+        <div class="bg-surface-base p-space-md rounded-DEFAULT border border-border-subtle flex flex-col gap-space-sm">
+          <div class="flex items-center justify-between pb-1 border-b border-border-subtle">
+            <span class="font-label-mono-sm text-label-mono-sm text-primary uppercase font-bold tracking-wider">
+              KEY PORTFOLIO BREAKTHROUGHS &amp; EMPIRICAL RESULTS
+            </span>
+            <span class="font-label-mono-sm text-[11px] text-text-dim">FACT-CHECKED &amp; VERIFIED</span>
+          </div>
+          <ul class="space-y-3 pt-2" id="prospectus-modal-highlights"></ul>
+        </div>
+
+        <!-- Modal Action Buttons -->
+        <div class="flex flex-wrap items-center justify-between gap-space-sm pt-2 border-t border-border-subtle">
+          <div class="flex flex-wrap items-center gap-space-sm">
+            <a class="px-4 py-2 bg-primary-container hover:bg-primary-fixed-dim text-on-primary font-label-mono-sm text-label-mono-sm rounded font-semibold flex items-center gap-1.5 transition-all shadow" id="prospectus-modal-paper" href="#" target="_blank" rel="noreferrer">
+              <span class="material-symbols-outlined text-[16px]">menu_book</span>
+              <span>Open Paper / DOI</span>
+            </a>
+            <a class="px-4 py-2 bg-surface-overlay hover:bg-surface-raised text-text-primary font-label-mono-sm text-label-mono-sm rounded font-semibold flex items-center gap-1.5 transition-all border border-border-subtle" id="prospectus-modal-code" href="#" target="_blank" rel="noreferrer">
+              <span class="material-symbols-outlined text-[16px]">code</span>
+              <span>View Source Code</span>
+            </a>
+          </div>
+          <button class="px-4 py-2 bg-surface-base hover:bg-surface-overlay text-text-dim hover:text-text-primary font-label-mono-sm text-label-mono-sm rounded border border-border-subtle transition-colors" onclick="closePaperProspectus()">
+            Close Prospectus
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =======================================================================
+       REVIEW CERTIFICATE LIGHTBOX MODAL
+       ======================================================================= -->
+  <div class="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 hidden bg-surface-base/85 backdrop-blur-md" id="review-lightbox-modal" role="dialog" aria-modal="true">
+    <div class="bg-surface-raised w-full max-w-3xl max-h-[90vh] rounded-DEFAULT shadow-2xl border border-border-subtle overflow-hidden flex flex-col animate-in fade-in zoom-in-95 duration-150">
+      <div class="bg-surface-overlay px-space-md py-space-sm flex items-center justify-between border-b border-border-subtle shrink-0">
+        <span class="font-label-mono-sm text-label-mono-sm text-status-active uppercase font-semibold flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-[18px]">verified</span> OFFICIAL REVIEWER CERTIFICATE INSPECTION
+        </span>
+        <button class="text-text-dim hover:text-text-primary p-1 rounded" onclick="closeReviewLightbox()" aria-label="Close certificate lightbox">
+          <span class="material-symbols-outlined text-[20px]">close</span>
+        </button>
+      </div>
+      <div class="p-space-md sm:p-space-lg overflow-y-auto flex flex-col gap-space-md">
+        <div class="w-full bg-surface-base rounded border border-border-subtle p-2 flex items-center justify-center">
+          <img id="review-lightbox-img" src="" alt="Reviewer Certificate" class="max-h-[60vh] w-auto object-contain rounded shadow" />
+        </div>
+        <div class="flex flex-col gap-1">
+          <h3 class="font-headline-md text-headline-md text-text-primary font-bold" id="review-lightbox-title"></h3>
+          <p class="font-label-mono-sm text-[12px] text-text-dim" id="review-lightbox-meta"></p>
+          <p class="font-body-md text-body-md text-on-surface-variant mt-1" id="review-lightbox-desc"></p>
+        </div>
+        <div class="flex items-center justify-between pt-2 border-t border-border-subtle">
+          <a id="review-lightbox-download" href="" target="_blank" class="px-4 py-2 bg-primary/10 hover:bg-primary-container text-primary hover:text-on-primary-container font-label-mono-sm text-label-mono-sm rounded font-semibold transition-all flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+            <span>Open High-Resolution Image</span>
+          </a>
+          <button class="px-4 py-2 bg-surface-base hover:bg-surface-overlay text-text-dim hover:text-text-primary font-label-mono-sm text-label-mono-sm rounded border border-border-subtle transition-colors" onclick="closeReviewLightbox()">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Application Scripts -->
+  <script src="scripts/researchData.js"></script>
+  <script src="scripts/reviewsData.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

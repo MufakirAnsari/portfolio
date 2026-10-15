@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "cleanUrls": true,
+  "routes": [
+    { "src": "/reviews", "dest": "/reviews.html" },
+    { "src": "/certifications", "dest": "/certifications.html" },
+    { "src": "/code", "dest": "/certifications.html" },
+    { "src": "/hire-me", "dest": "/hire_me.html" },
+    { "src": "/hire_me", "dest": "/hire_me.html" },
+    { "src": "/freelance", "dest": "/freelance.html" },
+    { "src": "/consulting", "dest": "/freelance.html" },
+    { "src": "/bio", "dest": "/bio.html" },
+    { "src": "/contact", "dest": "/contact.html" },
+    { "src": "/home", "dest": "/index.html" },
+    { "handle": "filesystem" }
+  ]
+}
