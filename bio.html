@@ -192,8 +192,9 @@
   
     html { scroll-behavior: smooth; }
     body { margin: 0; padding: 0; background-color: #0a0f1d; color: #f8fafc; }
-    #site-header { position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; height: 4rem !important; z-index: 50 !important; background-color: rgba(15, 23, 42, 0.98) !important; border-bottom: 1px solid #1e293b !important; }
+    #site-header { position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; height: 4rem !important; z-index: 100 !important; background-color: #0f172a !important; border-bottom: 1px solid #1e293b !important; }
     #menu-toggle { touch-action: manipulation !important; -webkit-tap-highlight-color: transparent !important; cursor: pointer !important; }
+    #mobile-drawer { position: fixed !important; top: 4rem !important; left: 0 !important; right: 0 !important; max-height: calc(100vh - 4rem) !important; overflow-y: auto !important; -webkit-overflow-scrolling: touch !important; background-color: #0b1120 !important; border-bottom: 2px solid #06b6d4 !important; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.95), 0 0 0 1px rgba(30, 41, 59, 0.8) !important; z-index: 99 !important; }
     #mobile-drawer.hidden, .hidden { display: none !important; }
     #mobile-drawer:not(.hidden) { display: block !important; }
     #research, #experience, #stack, #catalog, #presentations, #reviews { scroll-margin-top: 5rem; }
@@ -203,8 +204,8 @@
 <body class="bg-surface-base font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen relative overflow-x-hidden">
   <canvas id="background-canvas" class="fixed inset-0 pointer-events-none z-0 opacity-40"></canvas>
 
-          <!-- Sticky Terminal Header -->
-  <header class="fixed top-0 left-0 right-0 z-50 bg-surface-raised/95 backdrop-blur-xl border-b border-border-subtle" id="site-header">
+            <!-- Sticky Terminal Header -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-[#0f172a] border-b border-border-subtle" id="site-header">
     <div class="h-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-2 sm:gap-4">
       <!-- Brand & Telemetry Status -->
       <div class="flex items-center gap-2 sm:gap-3 shrink-0">
@@ -251,42 +252,42 @@
       </div>
     </div>
 
-    <!-- Dedicated Responsive Mobile Drawer -->
-    <div class="hidden xl:hidden border-t border-border-subtle bg-surface-raised/98 backdrop-blur-md shadow-2xl overflow-y-auto max-h-[calc(100vh-4rem)]" id="mobile-drawer">
+    <!-- Dedicated Responsive Mobile Drawer (100% Solid Opaque Background - Zero Transparency) -->
+    <div class="hidden xl:hidden border-t border-border-subtle bg-[#0b1120] text-text-primary shadow-2xl overflow-y-auto max-h-[calc(100vh-4rem)]" id="mobile-drawer">
       <div class="px-4 py-3 flex flex-col gap-1">
-      <a class="mobile-nav-link flex items-center justify-between px-3 py-2.5 rounded-DEFAULT font-label-mono-sm text-[13px] uppercase text-on-surface-variant hover:text-text-primary hover:bg-surface-overlay transition-colors" href="index.html">
+      <a class="mobile-nav-link flex items-center justify-between px-3.5 py-2.5 rounded-DEFAULT font-label-mono-sm text-[13px] uppercase text-text-primary hover:text-primary hover:bg-surface-overlay/80 border border-transparent transition-colors" href="index.html">
         <span>Overview</span>
         <svg class="w-4 h-4 text-text-dim shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
       </a>
-      <a class="mobile-nav-link flex items-center justify-between px-3 py-2.5 rounded-DEFAULT font-label-mono-sm text-[13px] uppercase text-on-surface-variant hover:text-text-primary hover:bg-surface-overlay transition-colors" href="index.html#research">
+      <a class="mobile-nav-link flex items-center justify-between px-3.5 py-2.5 rounded-DEFAULT font-label-mono-sm text-[13px] uppercase text-text-primary hover:text-primary hover:bg-surface-overlay/80 border border-transparent transition-colors" href="index.html#research">
         <span>Research</span>
         <svg class="w-4 h-4 text-text-dim shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
       </a>
-      <a class="mobile-nav-link flex items-center justify-between px-3 py-2.5 rounded-DEFAULT font-label-mono-sm text-[13px] uppercase text-on-surface-variant hover:text-text-primary hover:bg-surface-overlay transition-colors" href="reviews.html">
+      <a class="mobile-nav-link flex items-center justify-between px-3.5 py-2.5 rounded-DEFAULT font-label-mono-sm text-[13px] uppercase text-text-primary hover:text-primary hover:bg-surface-overlay/80 border border-transparent transition-colors" href="reviews.html">
         <span>Peer Reviews</span>
         <svg class="w-4 h-4 text-text-dim shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
       </a>
-      <a class="mobile-nav-link flex items-center justify-between px-3 py-2.5 rounded-DEFAULT font-label-mono-sm text-[13px] uppercase text-on-surface-variant hover:text-text-primary hover:bg-surface-overlay transition-colors" href="index.html#experience">
+      <a class="mobile-nav-link flex items-center justify-between px-3.5 py-2.5 rounded-DEFAULT font-label-mono-sm text-[13px] uppercase text-text-primary hover:text-primary hover:bg-surface-overlay/80 border border-transparent transition-colors" href="index.html#experience">
         <span>Experience</span>
         <svg class="w-4 h-4 text-text-dim shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
       </a>
-      <a class="mobile-nav-link flex items-center justify-between px-3 py-2.5 rounded-DEFAULT font-label-mono-sm text-[13px] uppercase text-on-surface-variant hover:text-text-primary hover:bg-surface-overlay transition-colors" href="index.html#stack">
+      <a class="mobile-nav-link flex items-center justify-between px-3.5 py-2.5 rounded-DEFAULT font-label-mono-sm text-[13px] uppercase text-text-primary hover:text-primary hover:bg-surface-overlay/80 border border-transparent transition-colors" href="index.html#stack">
         <span>Stack</span>
         <svg class="w-4 h-4 text-text-dim shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
       </a>
-      <a class="mobile-nav-link flex items-center justify-between px-3 py-2.5 rounded-DEFAULT font-label-mono-sm text-[13px] uppercase text-on-surface-variant hover:text-text-primary hover:bg-surface-overlay transition-colors" href="hire_me.html">
+      <a class="mobile-nav-link flex items-center justify-between px-3.5 py-2.5 rounded-DEFAULT font-label-mono-sm text-[13px] uppercase text-text-primary hover:text-primary hover:bg-surface-overlay/80 border border-transparent transition-colors" href="hire_me.html">
         <span>Hire Me</span>
         <svg class="w-4 h-4 text-text-dim shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
       </a>
-      <a class="mobile-nav-link flex items-center justify-between px-3 py-2.5 rounded-DEFAULT font-label-mono-sm text-[13px] uppercase text-on-surface-variant hover:text-text-primary hover:bg-surface-overlay transition-colors" href="freelance.html">
+      <a class="mobile-nav-link flex items-center justify-between px-3.5 py-2.5 rounded-DEFAULT font-label-mono-sm text-[13px] uppercase text-text-primary hover:text-primary hover:bg-surface-overlay/80 border border-transparent transition-colors" href="freelance.html">
         <span>Freelance</span>
         <svg class="w-4 h-4 text-text-dim shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
       </a>
-      <a class="mobile-nav-link flex items-center justify-between px-3 py-2.5 rounded-DEFAULT font-label-mono-sm text-[13px] uppercase text-on-surface-variant hover:text-text-primary hover:bg-surface-overlay transition-colors" href="certifications.html">
+      <a class="mobile-nav-link flex items-center justify-between px-3.5 py-2.5 rounded-DEFAULT font-label-mono-sm text-[13px] uppercase text-text-primary hover:text-primary hover:bg-surface-overlay/80 border border-transparent transition-colors" href="certifications.html">
         <span>Credentials</span>
         <svg class="w-4 h-4 text-text-dim shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
       </a>
-      <a class="mobile-nav-link flex items-center justify-between px-3 py-2.5 rounded-DEFAULT font-label-mono-sm text-[13px] uppercase text-on-surface-variant hover:text-text-primary hover:bg-surface-overlay transition-colors" href="contact.html">
+      <a class="mobile-nav-link flex items-center justify-between px-3.5 py-2.5 rounded-DEFAULT font-label-mono-sm text-[13px] uppercase text-text-primary hover:text-primary hover:bg-surface-overlay/80 border border-transparent transition-colors" href="contact.html">
         <span>Contact</span>
         <svg class="w-4 h-4 text-text-dim shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
       </a>
@@ -305,7 +306,7 @@
       </div>
     </div>
 
-    <!-- Instant Mobile Menu Touch Controller -->
+    <!-- Instant Mobile Menu Controller -->
     <script>
       (function() {
         var btn = document.getElementById('menu-toggle');
@@ -329,45 +330,60 @@
           }
         };
 
-        // Instant click response without touch debounce conflicts
-        btn.addEventListener('click', function(e) {
-          e.preventDefault();
-          e.stopPropagation();
+        // Dual click and touchend handler with debounce prevents double-toggle and latency
+        var lastToggle = 0;
+        function onToggle(e) {
+          var now = Date.now();
+          if (now - lastToggle < 300) return;
+          lastToggle = now;
+          if (e) {
+            e.preventDefault();
+            e.stopPropagation();
+          }
           window.__toggleMobileNav();
-        });
+        }
 
-        // Instant navigation and smooth scroll for drawer links
+        btn.addEventListener('click', onToggle);
+        btn.addEventListener('touchend', onToggle);
+
+        // Smooth scroll and drawer close for in-page anchors
         drawer.querySelectorAll('a').forEach(function(a) {
           a.addEventListener('click', function(e) {
             var href = a.getAttribute('href') || '';
-            window.__toggleMobileNav(true);
             if (href.startsWith('#')) {
+              e.preventDefault();
               var targetId = href.substring(1);
-              if (targetId === 'top') {
-                e.preventDefault();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-                if (window.history && window.history.pushState) {
-                  window.history.pushState(null, '', window.location.pathname);
-                }
-              } else {
-                var targetEl = document.getElementById(targetId);
-                if (targetEl) {
-                  e.preventDefault();
-                  targetEl.scrollIntoView({ behavior: 'smooth' });
-                  if (window.history && window.history.pushState) {
-                    window.history.pushState(null, '', '#' + targetId);
+              window.__toggleMobileNav(true);
+
+              setTimeout(function() {
+                if (targetId === 'top') {
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                  var targetEl = document.getElementById(targetId);
+                  if (targetEl) {
+                    var rect = targetEl.getBoundingClientRect();
+                    var targetPosition = rect.top + window.pageYOffset - 70;
+                    window.scrollTo({ top: targetPosition, behavior: 'smooth' });
                   }
                 }
-              }
+                if (window.history && window.history.pushState) {
+                  window.history.pushState(null, '', targetId === 'top' ? window.location.pathname : '#' + targetId);
+                }
+              }, 40);
+            } else {
+              window.__toggleMobileNav(true);
             }
           });
         });
 
-        // Close when tapping outside the header
+        // Close on tapping outside
         document.addEventListener('click', function(e) {
           if (btn.getAttribute('aria-expanded') === 'true') {
             var header = document.getElementById('site-header');
-            if (header && !header.contains(e.target)) {
+            var drawer = document.getElementById('mobile-drawer');
+            var inHeader = header && header.contains(e.target);
+            var inDrawer = drawer && drawer.contains(e.target);
+            if (!inHeader && !inDrawer) {
               window.__toggleMobileNav(true);
             }
           }

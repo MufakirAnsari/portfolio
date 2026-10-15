@@ -83,41 +83,45 @@ function initNavigation() {
           e.stopPropagation();
           toggleNav();
         });
+
+        drawer.querySelectorAll("a").forEach(a => {
+          a.addEventListener("click", () => {
+            if (window.innerWidth < 1280) {
+              toggleNav(true);
+            }
+          });
+        });
+
+        // Close when tapping outside
+        document.addEventListener("click", (e) => {
+          if (menuToggle.getAttribute("aria-expanded") === "true") {
+            if (header && !header.contains(e.target) && drawer && !drawer.contains(e.target)) {
+              toggleNav(true);
+            }
+          }
+        });
       }
     }
-
-    drawer.querySelectorAll("a").forEach(a => {
-      a.addEventListener("click", () => {
-        if (window.innerWidth < 1280) {
-          toggleNav(true);
-        }
-      });
-    });
-
-    // Close when tapping outside
-    document.addEventListener("click", (e) => {
-      if (menuToggle.getAttribute("aria-expanded") === "true") {
-        if (header && !header.contains(e.target)) {
-          toggleNav(true);
-        }
-      }
-    });
 
     // Close on Escape
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape" && menuToggle.getAttribute("aria-expanded") === "true") {
-        toggleNav(true);
+        if (typeof window.__toggleMobileNav === "function") {
+          window.__toggleMobileNav(true);
+        } else {
+          toggleNav(true);
+        }
       }
     });
   }
 
-  // Header scroll backdrop effect
+  // Header scroll backdrop shadow effect
   if (header) {
     window.addEventListener("scroll", () => {
       if (window.scrollY > 20) {
-        header.classList.add("bg-surface-raised/95", "shadow-md");
+        header.classList.add("shadow-lg");
       } else {
-        header.classList.remove("bg-surface-raised/95", "shadow-md");
+        header.classList.remove("shadow-lg");
       }
     });
   }
