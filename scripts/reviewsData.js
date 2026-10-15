@@ -72,7 +72,7 @@ const reviewsData = [
     shortName: "IEEE ICMLA 2026",
     publisher: "IEEE / IEEE Computer Society",
     role: "Technical Program Reviewer",
-    reviewsCount: 1,
+    reviewsCount: 3,
     period: "2026",
     badge: "IEEE Technical Reviewer",
     seal: "IEEE Computer Society",
