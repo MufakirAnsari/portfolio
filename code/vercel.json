@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "cleanUrls": true,
+  "cleanUrls": false,
   "routes": [
     { "src": "/reviews", "dest": "/reviews.html" },
     { "src": "/certifications", "dest": "/certifications.html" },
