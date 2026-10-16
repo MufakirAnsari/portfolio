@@ -1,0 +1,19 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Personal research portfolio and systems architecture website for **Mufakir Ansari** — AI Researcher & Systems Architect.",
+  "main": "script.js",
+  "scripts": {
+    "build:css": "tailwindcss -i input.css -o style.css --minify",
+    "test": "node scratch/test_all_pages_runtime.js && node scratch/verify_all.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MufakirAnsari/portfolio.git"
+  },
+  "author": "Mufakir Ansari",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.4.19"
+  }
+}
