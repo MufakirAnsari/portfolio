@@ -240,12 +240,38 @@ function initNavigation() {
 /* =======================================================================
    2. RESEARCH PAPERS CATALOG & PROSPECTUS POPUP MODAL
    ======================================================================= */
+let katexLoadingPromise = null;
+function loadKaTeXLibrary() {
+  if (typeof renderMathInElement === "function") return Promise.resolve();
+  if (katexLoadingPromise) return katexLoadingPromise;
+
+  katexLoadingPromise = new Promise((resolve) => {
+    if (!document.getElementById("katex-css")) {
+      const link = document.createElement("link");
+      link.id = "katex-css";
+      link.rel = "stylesheet";
+      link.href = "https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css";
+      document.head.appendChild(link);
+    }
+    const s1 = document.createElement("script");
+    s1.src = "https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js";
+    s1.onload = () => {
+      const s2 = document.createElement("script");
+      s2.src = "https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js";
+      s2.onload = resolve;
+      document.head.appendChild(s2);
+    };
+    document.head.appendChild(s1);
+  });
+  return katexLoadingPromise;
+}
+
 function renderLatexMath(element) {
   if (!element) return;
   // If element contains no LaTeX delimiters, skip KaTeX entirely to conserve 100% CPU
   if (!element.innerHTML.includes('$') && !element.innerHTML.includes('\\[')) return;
 
-  const executeKaTeX = () => {
+  loadKaTeXLibrary().then(() => {
     if (typeof renderMathInElement === "function") {
       try {
         renderMathInElement(element, {
@@ -262,13 +288,7 @@ function renderLatexMath(element) {
         console.warn("KaTeX render error:", err);
       }
     }
-  };
-
-  if (typeof renderMathInElement === "function") {
-    executeKaTeX();
-  } else {
-    setTimeout(executeKaTeX, 350);
-  }
+  });
 }
 
 function formatMarkdownText(text) {
