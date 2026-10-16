@@ -117,13 +117,18 @@ function initNavigation() {
 
   // Header scroll backdrop shadow effect
   if (header) {
+    let headerScrollTimer = null;
     window.addEventListener("scroll", () => {
-      if (window.scrollY > 20) {
-        header.classList.add("shadow-lg");
-      } else {
-        header.classList.remove("shadow-lg");
-      }
-    });
+      if (headerScrollTimer) return;
+      headerScrollTimer = requestAnimationFrame(() => {
+        headerScrollTimer = null;
+        if (window.scrollY > 20) {
+          header.classList.add("shadow-lg");
+        } else {
+          header.classList.remove("shadow-lg");
+        }
+      });
+    }, { passive: true });
   }
 
   // Overview Page Multi-Active Section Highlighting
@@ -193,27 +198,32 @@ function initNavigation() {
       });
     }
 
-    // Scrollspy detection
+    // Scrollspy detection - restricted to desktop screens (>= 1280px) with requestAnimationFrame to eliminate mobile layout thrashing
     const trackedSections = [
       { id: "research", el: document.getElementById("research") },
       { id: "experience", el: document.getElementById("experience") },
       { id: "stack", el: document.getElementById("stack") }
     ].filter(s => s.el);
 
-    if (trackedSections.length > 0) {
+    if (trackedSections.length > 0 && typeof window !== "undefined" && window.innerWidth >= 1280) {
+      let scrollspyTimer = null;
       window.addEventListener("scroll", () => {
-        const scrollPosition = window.scrollY + 220;
-        let activeSec = null;
+        if (scrollspyTimer) return;
+        scrollspyTimer = requestAnimationFrame(() => {
+          scrollspyTimer = null;
+          const scrollPosition = window.scrollY + 220;
+          let activeSec = null;
 
-        for (let i = trackedSections.length - 1; i >= 0; i--) {
-          const item = trackedSections[i];
-          if (item.el.offsetTop <= scrollPosition) {
-            activeSec = item.id;
-            break;
+          for (let i = trackedSections.length - 1; i >= 0; i--) {
+            const item = trackedSections[i];
+            if (item.el.offsetTop <= scrollPosition) {
+              activeSec = item.id;
+              break;
+            }
           }
-        }
 
-        syncActiveNav(activeSec);
+          syncActiveNav(activeSec);
+        });
       }, { passive: true });
     }
 
@@ -232,6 +242,9 @@ function initNavigation() {
    ======================================================================= */
 function renderLatexMath(element) {
   if (!element) return;
+  // If element contains no LaTeX delimiters, skip KaTeX entirely to conserve 100% CPU
+  if (!element.innerHTML.includes('$') && !element.innerHTML.includes('\\[')) return;
+
   const executeKaTeX = () => {
     if (typeof renderMathInElement === "function") {
       try {
@@ -254,9 +267,7 @@ function renderLatexMath(element) {
   if (typeof renderMathInElement === "function") {
     executeKaTeX();
   } else {
-    setTimeout(executeKaTeX, 120);
-    setTimeout(executeKaTeX, 450);
-    setTimeout(executeKaTeX, 1200);
+    setTimeout(executeKaTeX, 350);
   }
 }
 
@@ -276,13 +287,19 @@ function initResearchCatalog() {
 
   if (!container || typeof researchPapers === "undefined") return;
 
+  let showAllPapersOnMobile = false;
+
   function renderPapers(filter = "all") {
     container.innerHTML = "";
     const filtered = filter === "all" 
       ? researchPapers 
       : researchPapers.filter(p => p.category === filter);
 
-    filtered.forEach((paper) => {
+    const isMobile = window.innerWidth < 768;
+    const shouldLimit = isMobile && filter === "all" && !showAllPapersOnMobile && filtered.length > 4;
+    const displayPapers = shouldLimit ? filtered.slice(0, 4) : filtered;
+
+    displayPapers.forEach((paper) => {
       const card = document.createElement("article");
       card.className = "bg-surface-raised rounded-DEFAULT p-space-lg flex flex-col justify-between gap-space-md group hover:bg-surface-overlay transition-all shadow-md relative overflow-hidden cursor-pointer";
       
@@ -348,6 +365,22 @@ function initResearchCatalog() {
 
       container.appendChild(card);
     });
+
+    if (shouldLimit) {
+      const loadMoreWrap = document.createElement("div");
+      loadMoreWrap.className = "col-span-full pt-3 flex flex-col items-center";
+      loadMoreWrap.innerHTML = `
+        <button id="show-all-papers-mobile-btn" class="w-full sm:w-auto px-6 py-3 bg-surface-raised hover:bg-surface-overlay active:bg-surface-container text-primary border border-primary/40 rounded-DEFAULT font-label-mono-sm text-[12px] uppercase font-bold transition-all shadow-md flex items-center justify-center gap-2">
+          <span>&gt; View All 10 Research Papers (${filtered.length - 4} More)</span>
+          <span class="material-symbols-outlined text-[18px]">expand_more</span>
+        </button>
+      `;
+      loadMoreWrap.querySelector("button").addEventListener("click", () => {
+        showAllPapersOnMobile = true;
+        renderPapers(filter);
+      });
+      container.appendChild(loadMoreWrap);
+    }
 
     renderLatexMath(container);
   }
@@ -823,6 +856,13 @@ function initContactForms() {
 function initBackgroundCanvas() {
   const canvas = document.getElementById("background-canvas");
   if (!canvas) return;
+
+  // On mobile or tablet screens (< 1024px), completely disable canvas animation to free 100% of CPU and GPU
+  if (typeof window !== "undefined" && window.innerWidth < 1024) {
+    if (canvas && canvas.style) canvas.style.display = "none";
+    return;
+  }
+
   const ctx = canvas.getContext("2d");
   if (!ctx) return;
 

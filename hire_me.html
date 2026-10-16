@@ -154,13 +154,25 @@
     #mobile-drawer.hidden, .hidden { display: none !important; }
     #mobile-drawer:not(.hidden) { display: block !important; }
     #research, #experience, #stack, #catalog, #presentations, #reviews { scroll-margin-top: 5rem; }
+    @media (max-width: 1023px) {
+      #background-canvas { display: none !important; }
+    }
+    @media (max-width: 767px) {
+      .backdrop-blur-xl, .backdrop-blur-md, .backdrop-blur-sm {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+      }
+      .blur-\[100px\], .blur-\[130px\] {
+        display: none !important;
+      }
+    }
   </style>
 </head>
 
 <body class="bg-surface-base font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen relative overflow-x-hidden">
   <canvas id="background-canvas" class="fixed inset-0 pointer-events-none z-0 opacity-40"></canvas>
 
-            <!-- Sticky Terminal Header -->
+              <!-- Sticky Terminal Header -->
   <header class="fixed top-0 left-0 right-0 z-50 bg-[#0f172a] border-b border-border-subtle" id="site-header">
     <div class="h-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-2 sm:gap-4">
       <!-- Brand & Telemetry Status -->
@@ -197,11 +209,11 @@
           CV / Bio
         </a>
         <!-- High-Performance Instant Mobile Hamburger (Pure SVG - Zero FOIT Latency) -->
-        <button aria-label="Toggle navigation menu" aria-expanded="false" class="xl:hidden p-2 text-text-primary hover:bg-surface-overlay active:bg-surface-container rounded-DEFAULT flex items-center justify-center transition-colors focus:outline-none" id="menu-toggle" style="touch-action: manipulation; -webkit-tap-highlight-color: transparent;">
-          <svg id="menu-icon-bars" class="w-6 h-6 text-text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <button aria-label="Toggle navigation menu" aria-expanded="false" class="xl:hidden p-2 text-text-primary hover:bg-surface-overlay active:bg-surface-container rounded-DEFAULT flex items-center justify-center transition-colors focus:outline-none" id="menu-toggle" onclick="window.__toggleMobileNav(event)" style="touch-action: manipulation; -webkit-tap-highlight-color: transparent;">
+          <svg id="menu-icon-bars" class="w-6 h-6 text-text-primary pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
           </svg>
-          <svg id="menu-icon-close" class="hidden w-6 h-6 text-text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <svg id="menu-icon-close" class="hidden w-6 h-6 text-text-primary pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
           </svg>
         </button>
@@ -211,51 +223,51 @@
     <!-- Dedicated Responsive Mobile Drawer (100% Solid Opaque Background - Zero Transparency) -->
     <div class="hidden xl:hidden border-t border-border-subtle bg-[#0b1120] text-text-primary shadow-2xl overflow-y-auto max-h-[calc(100vh-4rem)]" id="mobile-drawer">
       <div class="px-4 py-3 flex flex-col gap-1">
-      <a class="mobile-nav-link flex items-center justify-between px-3.5 py-2.5 rounded-DEFAULT font-label-mono-sm text-[13px] uppercase text-text-primary hover:text-primary hover:bg-surface-overlay/80 border border-transparent transition-colors" href="index.html">
+      <a class="mobile-nav-link flex items-center justify-between px-3.5 py-2.5 rounded-DEFAULT font-label-mono-sm text-[13px] uppercase text-text-primary hover:text-primary hover:bg-surface-overlay/80 border border-transparent transition-colors" href="index.html" onclick="window.__handleNavClick('index.html', event)">
         <span>Overview</span>
-        <svg class="w-4 h-4 text-text-dim shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        <svg class="w-4 h-4 text-text-dim shrink-0 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
       </a>
-      <a class="mobile-nav-link flex items-center justify-between px-3.5 py-2.5 rounded-DEFAULT font-label-mono-sm text-[13px] uppercase text-text-primary hover:text-primary hover:bg-surface-overlay/80 border border-transparent transition-colors" href="index.html#research">
+      <a class="mobile-nav-link flex items-center justify-between px-3.5 py-2.5 rounded-DEFAULT font-label-mono-sm text-[13px] uppercase text-text-primary hover:text-primary hover:bg-surface-overlay/80 border border-transparent transition-colors" href="index.html#research" onclick="window.__handleNavClick('index.html#research', event)">
         <span>Research</span>
-        <svg class="w-4 h-4 text-text-dim shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        <svg class="w-4 h-4 text-text-dim shrink-0 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
       </a>
-      <a class="mobile-nav-link flex items-center justify-between px-3.5 py-2.5 rounded-DEFAULT font-label-mono-sm text-[13px] uppercase text-text-primary hover:text-primary hover:bg-surface-overlay/80 border border-transparent transition-colors" href="reviews.html">
+      <a class="mobile-nav-link flex items-center justify-between px-3.5 py-2.5 rounded-DEFAULT font-label-mono-sm text-[13px] uppercase text-text-primary hover:text-primary hover:bg-surface-overlay/80 border border-transparent transition-colors" href="reviews.html" onclick="window.__handleNavClick('reviews.html', event)">
         <span>Peer Reviews</span>
-        <svg class="w-4 h-4 text-text-dim shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        <svg class="w-4 h-4 text-text-dim shrink-0 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
       </a>
-      <a class="mobile-nav-link flex items-center justify-between px-3.5 py-2.5 rounded-DEFAULT font-label-mono-sm text-[13px] uppercase text-text-primary hover:text-primary hover:bg-surface-overlay/80 border border-transparent transition-colors" href="index.html#experience">
+      <a class="mobile-nav-link flex items-center justify-between px-3.5 py-2.5 rounded-DEFAULT font-label-mono-sm text-[13px] uppercase text-text-primary hover:text-primary hover:bg-surface-overlay/80 border border-transparent transition-colors" href="index.html#experience" onclick="window.__handleNavClick('index.html#experience', event)">
         <span>Experience</span>
-        <svg class="w-4 h-4 text-text-dim shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        <svg class="w-4 h-4 text-text-dim shrink-0 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
       </a>
-      <a class="mobile-nav-link flex items-center justify-between px-3.5 py-2.5 rounded-DEFAULT font-label-mono-sm text-[13px] uppercase text-text-primary hover:text-primary hover:bg-surface-overlay/80 border border-transparent transition-colors" href="index.html#stack">
+      <a class="mobile-nav-link flex items-center justify-between px-3.5 py-2.5 rounded-DEFAULT font-label-mono-sm text-[13px] uppercase text-text-primary hover:text-primary hover:bg-surface-overlay/80 border border-transparent transition-colors" href="index.html#stack" onclick="window.__handleNavClick('index.html#stack', event)">
         <span>Stack</span>
-        <svg class="w-4 h-4 text-text-dim shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        <svg class="w-4 h-4 text-text-dim shrink-0 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
       </a>
-      <a class="mobile-nav-link flex items-center justify-between px-3.5 py-2.5 rounded-DEFAULT font-label-mono-sm text-[13px] uppercase bg-surface-overlay text-primary border border-primary/30 font-semibold transition-colors" href="hire_me.html">
+      <a class="mobile-nav-link flex items-center justify-between px-3.5 py-2.5 rounded-DEFAULT font-label-mono-sm text-[13px] uppercase bg-surface-overlay text-primary border border-primary/30 font-semibold transition-colors" href="hire_me.html" onclick="window.__handleNavClick('hire_me.html', event)">
         <span>Hire Me</span>
         <span class="text-primary font-bold text-[14px]">●</span>
       </a>
-      <a class="mobile-nav-link flex items-center justify-between px-3.5 py-2.5 rounded-DEFAULT font-label-mono-sm text-[13px] uppercase text-text-primary hover:text-primary hover:bg-surface-overlay/80 border border-transparent transition-colors" href="freelance.html">
+      <a class="mobile-nav-link flex items-center justify-between px-3.5 py-2.5 rounded-DEFAULT font-label-mono-sm text-[13px] uppercase text-text-primary hover:text-primary hover:bg-surface-overlay/80 border border-transparent transition-colors" href="freelance.html" onclick="window.__handleNavClick('freelance.html', event)">
         <span>Freelance</span>
-        <svg class="w-4 h-4 text-text-dim shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        <svg class="w-4 h-4 text-text-dim shrink-0 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
       </a>
-      <a class="mobile-nav-link flex items-center justify-between px-3.5 py-2.5 rounded-DEFAULT font-label-mono-sm text-[13px] uppercase text-text-primary hover:text-primary hover:bg-surface-overlay/80 border border-transparent transition-colors" href="certifications.html">
+      <a class="mobile-nav-link flex items-center justify-between px-3.5 py-2.5 rounded-DEFAULT font-label-mono-sm text-[13px] uppercase text-text-primary hover:text-primary hover:bg-surface-overlay/80 border border-transparent transition-colors" href="certifications.html" onclick="window.__handleNavClick('certifications.html', event)">
         <span>Credentials</span>
-        <svg class="w-4 h-4 text-text-dim shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        <svg class="w-4 h-4 text-text-dim shrink-0 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
       </a>
-      <a class="mobile-nav-link flex items-center justify-between px-3.5 py-2.5 rounded-DEFAULT font-label-mono-sm text-[13px] uppercase text-text-primary hover:text-primary hover:bg-surface-overlay/80 border border-transparent transition-colors" href="contact.html">
+      <a class="mobile-nav-link flex items-center justify-between px-3.5 py-2.5 rounded-DEFAULT font-label-mono-sm text-[13px] uppercase text-text-primary hover:text-primary hover:bg-surface-overlay/80 border border-transparent transition-colors" href="contact.html" onclick="window.__handleNavClick('contact.html', event)">
         <span>Contact</span>
-        <svg class="w-4 h-4 text-text-dim shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        <svg class="w-4 h-4 text-text-dim shrink-0 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
       </a>
 
         <!-- Quick Action Buttons in Drawer (Pure SVG) -->
         <div class="pt-3 mt-1 border-t border-border-subtle grid grid-cols-2 gap-2">
           <a class="flex items-center justify-center gap-1.5 bg-primary-container text-on-primary font-label-mono-sm text-[12px] font-semibold py-2.5 px-3 rounded-DEFAULT shadow-sm text-center" href="Mufakir_Ansari_Resume.pdf" target="_blank" download="Mufakir_Ansari_Resume.pdf">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+            <svg class="w-4 h-4 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
             <span>Resume (PDF)</span>
           </a>
           <a class="flex items-center justify-center gap-1.5 bg-surface-overlay text-text-primary border border-border-subtle font-label-mono-sm text-[12px] font-semibold py-2.5 px-3 rounded-DEFAULT text-center" href="bio.html">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2"></path></svg>
+            <svg class="w-4 h-4 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2"></path></svg>
             <span>CV / Bio</span>
           </a>
         </div>
@@ -265,15 +277,16 @@
     <!-- Instant Mobile Menu Controller -->
     <script>
       (function() {
-        var btn = document.getElementById('menu-toggle');
-        var drawer = document.getElementById('mobile-drawer');
-        var barsIcon = document.getElementById('menu-icon-bars');
-        var closeIcon = document.getElementById('menu-icon-close');
-        if (!btn || !drawer) return;
+        window.__toggleMobileNav = function(e) {
+          if (e && e.stopPropagation) e.stopPropagation();
+          var btn = document.getElementById('menu-toggle');
+          var drawer = document.getElementById('mobile-drawer');
+          var barsIcon = document.getElementById('menu-icon-bars');
+          var closeIcon = document.getElementById('menu-icon-close');
+          if (!btn || !drawer) return;
 
-        window.__toggleMobileNav = function(forceClose) {
           var isOpen = btn.getAttribute('aria-expanded') === 'true';
-          var next = forceClose === true ? false : (forceClose === false ? true : !isOpen);
+          var next = (e === true) ? false : (e === false ? true : !isOpen);
           btn.setAttribute('aria-expanded', next ? 'true' : 'false');
           if (next) {
             drawer.classList.remove('hidden');
@@ -286,58 +299,37 @@
           }
         };
 
-        // Dual click and touchend handler with debounce prevents double-toggle and latency
-        var lastToggle = 0;
-        function onToggle(e) {
-          var now = Date.now();
-          if (now - lastToggle < 300) return;
-          lastToggle = now;
-          if (e) {
-            e.preventDefault();
-            e.stopPropagation();
+        window.__handleNavClick = function(href, e) {
+          if (e && e.stopPropagation) e.stopPropagation();
+          window.__toggleMobileNav(true);
+
+          if (href && href.startsWith('#')) {
+            if (e && e.preventDefault) e.preventDefault();
+            var targetId = href.substring(1);
+            setTimeout(function() {
+              if (targetId === 'top') {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              } else {
+                var targetEl = document.getElementById(targetId);
+                if (targetEl) {
+                  var rect = targetEl.getBoundingClientRect();
+                  var targetPosition = rect.top + window.pageYOffset - 70;
+                  window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                }
+              }
+              if (window.history && window.history.pushState) {
+                window.history.pushState(null, '', targetId === 'top' ? window.location.pathname : '#' + targetId);
+              }
+            }, 50);
           }
-          window.__toggleMobileNav();
-        }
-
-        btn.addEventListener('click', onToggle);
-        btn.addEventListener('touchend', onToggle);
-
-        // Smooth scroll and drawer close for in-page anchors
-        drawer.querySelectorAll('a').forEach(function(a) {
-          a.addEventListener('click', function(e) {
-            var href = a.getAttribute('href') || '';
-            if (href.startsWith('#')) {
-              e.preventDefault();
-              var targetId = href.substring(1);
-              window.__toggleMobileNav(true);
-
-              setTimeout(function() {
-                if (targetId === 'top') {
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                } else {
-                  var targetEl = document.getElementById(targetId);
-                  if (targetEl) {
-                    var rect = targetEl.getBoundingClientRect();
-                    var targetPosition = rect.top + window.pageYOffset - 70;
-                    window.scrollTo({ top: targetPosition, behavior: 'smooth' });
-                  }
-                }
-                if (window.history && window.history.pushState) {
-                  window.history.pushState(null, '', targetId === 'top' ? window.location.pathname : '#' + targetId);
-                }
-              }, 40);
-            } else {
-              window.__toggleMobileNav(true);
-            }
-          });
-        });
+        };
 
         // Close on tapping outside
         document.addEventListener('click', function(e) {
-          if (btn.getAttribute('aria-expanded') === 'true') {
-            var header = document.getElementById('site-header');
+          var btn = document.getElementById('menu-toggle');
+          if (btn && btn.getAttribute('aria-expanded') === 'true') {
             var drawer = document.getElementById('mobile-drawer');
-            var inHeader = header && header.contains(e.target);
+            var inHeader = btn.contains(e.target);
             var inDrawer = drawer && drawer.contains(e.target);
             if (!inHeader && !inDrawer) {
               window.__toggleMobileNav(true);
