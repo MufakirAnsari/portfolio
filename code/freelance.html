@@ -145,13 +145,25 @@
       ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
       ::-webkit-scrollbar-thumb:hover { background: #06b6d4; }
     }
+    @media (max-width: 1023px) {
+      #background-canvas { display: none !important; }
+    }
+    @media (max-width: 767px) {
+      .backdrop-blur-xl, .backdrop-blur-md, .backdrop-blur-sm {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+      }
+      .blur-\[100px\], .blur-\[130px\] {
+        display: none !important;
+      }
+    }
   
     html { scroll-behavior: smooth; }
     body { margin: 0; padding: 0; background-color: #0a0f1d; color: #f8fafc; }
     #site-header { position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; height: 4rem !important; z-index: 100 !important; background-color: #0f172a !important; border-bottom: 1px solid #1e293b !important; }
     #menu-toggle { touch-action: manipulation !important; -webkit-tap-highlight-color: transparent !important; cursor: pointer !important; }
     #mobile-drawer { position: fixed !important; top: 4rem !important; left: 0 !important; right: 0 !important; max-height: calc(100vh - 4rem) !important; overflow-y: auto !important; -webkit-overflow-scrolling: touch !important; background-color: #0b1120 !important; border-bottom: 2px solid #06b6d4 !important; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.95), 0 0 0 1px rgba(30, 41, 59, 0.8) !important; z-index: 99 !important; }
-    #mobile-drawer.hidden, .hidden { display: none !important; }
+    #mobile-drawer.hidden { display: none !important; }
     #mobile-drawer:not(.hidden) { display: block !important; }
     #research, #experience, #stack, #catalog, #presentations, #reviews { scroll-margin-top: 5rem; }
     @media (max-width: 1023px) {
@@ -172,22 +184,18 @@
 <body class="bg-surface-base font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen relative overflow-x-hidden">
   <canvas id="background-canvas" class="fixed inset-0 pointer-events-none z-0 opacity-40"></canvas>
 
-              <!-- Sticky Terminal Header -->
+                <!-- Sticky Terminal Header -->
   <header class="fixed top-0 left-0 right-0 z-50 bg-[#0f172a] border-b border-border-subtle" id="site-header">
     <div class="h-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-2 sm:gap-4">
       <!-- Brand & Telemetry Status -->
       <div class="flex items-center gap-2 sm:gap-3 shrink-0">
-        <a href="index.html" class="flex items-center gap-2 group shrink-0">
-          <img alt="Mufakir Ansari Brand Mark" class="h-7 sm:h-8 w-auto object-contain shrink-0 group-hover:scale-105 transition-transform" src="logo.png"/>
-          <div class="flex flex-col shrink-0">
-            <span class="font-headline-md text-[16px] sm:text-[18px] font-semibold tracking-tight text-text-primary leading-tight whitespace-nowrap">Mufakir Ansari</span>
-            <span class="hidden 2xl:block font-label-mono-sm text-[10px] text-text-dim uppercase tracking-wider mt-0.5 whitespace-nowrap">AI Researcher &amp; Systems Architect</span>
-          </div>
+        <a href="index.html" class="flex items-center gap-2 group shrink-0" aria-label="Mufakir">
+          <img alt="Mufakir" class="h-7 sm:h-8 w-auto object-contain shrink-0 group-hover:scale-105 transition-transform" src="logo.png"/>
         </a>
       </div>
 
       <!-- Navigation Links (Desktop) -->
-      <nav class="hidden xl:flex items-center gap-1 shrink-0" id="site-nav">
+      <nav class="hidden lg:flex items-center gap-1 shrink-0" id="site-nav">
         <a class="nav-link px-2 py-1 2xl:px-2.5 2xl:py-1.5 font-label-mono-sm text-[11px] 2xl:text-label-mono-sm uppercase text-on-surface-variant hover:text-text-primary hover:bg-surface-overlay/60 transition-colors whitespace-nowrap" href="index.html" id="nav-overview">Overview</a>
         <a class="nav-link px-2 py-1 2xl:px-2.5 2xl:py-1.5 font-label-mono-sm text-[11px] 2xl:text-label-mono-sm uppercase text-on-surface-variant hover:text-text-primary hover:bg-surface-overlay/60 transition-colors whitespace-nowrap" href="index.html#research" id="nav-research">Research</a>
         <a class="nav-link px-2 py-1 2xl:px-2.5 2xl:py-1.5 font-label-mono-sm text-[11px] 2xl:text-label-mono-sm uppercase text-on-surface-variant hover:text-text-primary hover:bg-surface-overlay/60 transition-colors whitespace-nowrap" href="reviews.html" id="nav-reviews">Peer Reviews</a>
@@ -209,7 +217,7 @@
           CV / Bio
         </a>
         <!-- High-Performance Instant Mobile Hamburger (Pure SVG - Zero FOIT Latency) -->
-        <button aria-label="Toggle navigation menu" aria-expanded="false" class="xl:hidden p-2 text-text-primary hover:bg-surface-overlay active:bg-surface-container rounded-DEFAULT flex items-center justify-center transition-colors focus:outline-none" id="menu-toggle" onclick="window.__toggleMobileNav(event)" style="touch-action: manipulation; -webkit-tap-highlight-color: transparent;">
+        <button aria-label="Toggle navigation menu" aria-expanded="false" class="lg:hidden p-2 text-text-primary hover:bg-surface-overlay active:bg-surface-container rounded-DEFAULT flex items-center justify-center transition-colors focus:outline-none" id="menu-toggle" onclick="window.__toggleMobileNav(event)" style="touch-action: manipulation; -webkit-tap-highlight-color: transparent;">
           <svg id="menu-icon-bars" class="w-6 h-6 text-text-primary pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
           </svg>
@@ -221,7 +229,7 @@
     </div>
 
     <!-- Dedicated Responsive Mobile Drawer (100% Solid Opaque Background - Zero Transparency) -->
-    <div class="hidden xl:hidden border-t border-border-subtle bg-[#0b1120] text-text-primary shadow-2xl overflow-y-auto max-h-[calc(100vh-4rem)]" id="mobile-drawer">
+    <div class="hidden lg:hidden border-t border-border-subtle bg-[#0b1120] text-text-primary shadow-2xl overflow-y-auto max-h-[calc(100vh-4rem)]" id="mobile-drawer">
       <div class="px-4 py-3 flex flex-col gap-1">
       <a class="mobile-nav-link flex items-center justify-between px-3.5 py-2.5 rounded-DEFAULT font-label-mono-sm text-[13px] uppercase text-text-primary hover:text-primary hover:bg-surface-overlay/80 border border-transparent transition-colors" href="index.html" onclick="window.__handleNavClick('index.html', event)">
         <span>Overview</span>

@@ -86,7 +86,7 @@ function initNavigation() {
 
         drawer.querySelectorAll("a").forEach(a => {
           a.addEventListener("click", () => {
-            if (window.innerWidth < 1280) {
+            if (window.innerWidth < 1024) {
               toggleNav(true);
             }
           });
@@ -198,14 +198,14 @@ function initNavigation() {
       });
     }
 
-    // Scrollspy detection - restricted to desktop screens (>= 1280px) with requestAnimationFrame to eliminate mobile layout thrashing
+    // Scrollspy detection - restricted to desktop screens (>= 1024px) with requestAnimationFrame to eliminate mobile layout thrashing
     const trackedSections = [
       { id: "research", el: document.getElementById("research") },
       { id: "experience", el: document.getElementById("experience") },
       { id: "stack", el: document.getElementById("stack") }
     ].filter(s => s.el);
 
-    if (trackedSections.length > 0 && typeof window !== "undefined" && window.innerWidth >= 1280) {
+    if (trackedSections.length > 0 && typeof window !== "undefined" && window.innerWidth >= 1024) {
       let scrollspyTimer = null;
       window.addEventListener("scroll", () => {
         if (scrollspyTimer) return;
