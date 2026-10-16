@@ -67,10 +67,11 @@
   <link href="https://fonts.googleapis.com" rel="preconnect"/>
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet"/>
 
   <!-- KaTeX for High-Fidelity Scientific Math Typography -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css"></noscript>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
 
@@ -123,10 +124,10 @@
             "on-background": "#dee2f6",
             "border-active": "#334155",
             "secondary-container": "#571bc1",
-            "text-dim": "#64748b",
+            "text-dim": "#94a3b8",
             "on-error": "#690005",
             "surface-dim": "#0e1321",
-            "text-muted": "#94a3b8",
+            "text-muted": "#cbd5e1",
             "on-error-container": "#ffdad6",
             "error": "#ffb4ab",
             "on-secondary-fixed-variant": "#5516be",
@@ -252,7 +253,7 @@
       <!-- Brand & Telemetry Status -->
       <div class="flex items-center gap-2 sm:gap-3 shrink-0">
         <a href="index.html" class="flex items-center gap-2 group shrink-0" aria-label="Mufakir">
-          <img alt="Mufakir" class="h-7 sm:h-8 w-auto object-contain shrink-0 group-hover:scale-105 transition-transform" src="logo.png"/>
+          <img alt="Mufakir" width="127" height="32" class="h-7 sm:h-8 w-auto object-contain shrink-0 group-hover:scale-105 transition-transform" src="logo.png"/>
         </a>
       </div>
 
@@ -414,7 +415,7 @@
     <!-- Top Command Center / Hero -->
     <section class="relative w-full overflow-hidden pb-space-2xl pt-space-xl">
       <div class="absolute -top-32 -left-24 w-96 h-96 rounded-full bg-primary/10 blur-[100px] pointer-events-none"></div>
-      <div class="absolute top-1/2 right-0 w-[30rem] h-[30rem] rounded-full bg-secondary-container/20 blur-[130px] pointer-events-none"></div>
+      <div class="absolute top-20 right-0 w-[30rem] h-[30rem] rounded-full bg-secondary-container/20 blur-[130px] pointer-events-none -z-10"></div>
       
       <div class="max-w-7xl mx-auto px-gutter relative z-10 flex flex-col gap-space-xl">
         <!-- Cluster Telemetry Banner -->

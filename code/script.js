@@ -526,9 +526,9 @@ function initReviewsShowcase() {
             ${rev.reviewsCount} ${rev.reviewsCount === 1 ? 'Review' : 'Reviews'} Verified
           </span>
         </div>
-        <h4 class="font-headline-md text-[14px] sm:text-[15px] text-text-primary font-bold group-hover:text-primary transition-colors leading-snug line-clamp-2">
+        <h3 class="font-headline-md text-[14px] sm:text-[15px] text-text-primary font-bold group-hover:text-primary transition-colors leading-snug line-clamp-2">
           ${rev.venue}
-        </h4>
+        </h3>
         <p class="font-body-md text-[12px] text-on-surface-variant line-clamp-3">
           ${formatMarkdownText(rev.description)}
         </p>
@@ -664,9 +664,9 @@ function initCertificatesGrid() {
         <div class="flex flex-col gap-2">
           ${thumbnailHtml}
           <div class="flex flex-col gap-1 pt-1">
-            <h4 class="font-headline-md text-[15px] font-bold text-text-primary group-hover:text-primary transition-colors leading-snug">
+            <h3 class="font-headline-md text-[15px] font-bold text-text-primary group-hover:text-primary transition-colors leading-snug">
               ${cert.title}
-            </h4>
+            </h3>
             <span class="font-label-mono-sm text-[11px] text-text-dim">
               ${cert.institution || meta.label}
             </span>
