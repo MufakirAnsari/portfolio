@@ -8,4 +8,8 @@
   ::-webkit-scrollbar-track { background: #0a0f1d; }
   ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
   ::-webkit-scrollbar-thumb:hover { background: #06b6d4; }
+  #mobile-drawer { background-color: #0b1120 !important; }
+  #mobile-drawer.hidden { display: none !important; }
+  #research, #experience, #stack, #catalog, #presentations, #reviews { scroll-margin-top: 5rem; }
 }
+

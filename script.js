@@ -15,11 +15,15 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   initNavigation();
-  initResearchCatalog();
-  initReviewsShowcase();
-  initCertificatesGrid();
-  initContactForms();
-  initBackgroundCanvas();
+
+  const deferTask = typeof requestAnimationFrame === "function" ? requestAnimationFrame : (fn) => setTimeout(fn, 16);
+  deferTask(() => {
+    initResearchCatalog();
+    initReviewsShowcase();
+    initCertificatesGrid();
+    initContactForms();
+    initBackgroundCanvas();
+  });
 });
 
 /* =======================================================================
@@ -402,7 +406,7 @@ function initResearchCatalog() {
       container.appendChild(loadMoreWrap);
     }
 
-    renderLatexMath(container);
+    // KaTeX is loaded on-demand when user opens a research prospectus modal (openPaperProspectus)
   }
 
   // Filter click handlers
