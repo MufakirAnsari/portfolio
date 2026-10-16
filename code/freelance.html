@@ -157,6 +157,18 @@
         display: none !important;
       }
     }
+    @media (max-width: 1023px) {
+      #background-canvas { display: none !important; }
+    }
+    @media (max-width: 767px) {
+      .backdrop-blur-xl, .backdrop-blur-md, .backdrop-blur-sm {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+      }
+      .blur-\[100px\], .blur-\[130px\] {
+        display: none !important;
+      }
+    }
   
     html { scroll-behavior: smooth; }
     body { margin: 0; padding: 0; background-color: #0a0f1d; color: #f8fafc; }
@@ -184,7 +196,7 @@
 <body class="bg-surface-base font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen relative overflow-x-hidden">
   <canvas id="background-canvas" class="fixed inset-0 pointer-events-none z-0 opacity-40"></canvas>
 
-                <!-- Sticky Terminal Header -->
+                  <!-- Sticky Terminal Header -->
   <header class="fixed top-0 left-0 right-0 z-50 bg-[#0f172a] border-b border-border-subtle" id="site-header">
     <div class="h-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-2 sm:gap-4">
       <!-- Brand & Telemetry Status -->
@@ -198,12 +210,12 @@
       <nav class="hidden lg:flex items-center gap-1 shrink-0" id="site-nav">
         <a class="nav-link px-2 py-1 2xl:px-2.5 2xl:py-1.5 font-label-mono-sm text-[11px] 2xl:text-label-mono-sm uppercase text-on-surface-variant hover:text-text-primary hover:bg-surface-overlay/60 transition-colors whitespace-nowrap" href="index.html" id="nav-overview">Overview</a>
         <a class="nav-link px-2 py-1 2xl:px-2.5 2xl:py-1.5 font-label-mono-sm text-[11px] 2xl:text-label-mono-sm uppercase text-on-surface-variant hover:text-text-primary hover:bg-surface-overlay/60 transition-colors whitespace-nowrap" href="index.html#research" id="nav-research">Research</a>
-        <a class="nav-link px-2 py-1 2xl:px-2.5 2xl:py-1.5 font-label-mono-sm text-[11px] 2xl:text-label-mono-sm uppercase text-on-surface-variant hover:text-text-primary hover:bg-surface-overlay/60 transition-colors whitespace-nowrap" href="reviews.html" id="nav-reviews">Peer Reviews</a>
         <a class="nav-link px-2 py-1 2xl:px-2.5 2xl:py-1.5 font-label-mono-sm text-[11px] 2xl:text-label-mono-sm uppercase text-on-surface-variant hover:text-text-primary hover:bg-surface-overlay/60 transition-colors whitespace-nowrap" href="index.html#experience" id="nav-experience">Experience</a>
         <a class="nav-link px-2 py-1 2xl:px-2.5 2xl:py-1.5 font-label-mono-sm text-[11px] 2xl:text-label-mono-sm uppercase text-on-surface-variant hover:text-text-primary hover:bg-surface-overlay/60 transition-colors whitespace-nowrap" href="index.html#stack" id="nav-stack">Stack</a>
         <a class="nav-link px-2 py-1 2xl:px-2.5 2xl:py-1.5 font-label-mono-sm text-[11px] 2xl:text-label-mono-sm uppercase text-on-surface-variant hover:text-text-primary hover:bg-surface-overlay/60 transition-colors whitespace-nowrap" href="hire_me.html" id="nav-hire">Hire Me</a>
         <a aria-current="page" class="nav-link px-2 py-1 2xl:px-2.5 2xl:py-1.5 font-label-mono-sm text-[11px] 2xl:text-label-mono-sm uppercase bg-surface-overlay text-primary border border-primary/30 rounded-DEFAULT transition-colors whitespace-nowrap" href="freelance.html" id="nav-freelance">Freelance</a>
         <a class="nav-link px-2 py-1 2xl:px-2.5 2xl:py-1.5 font-label-mono-sm text-[11px] 2xl:text-label-mono-sm uppercase text-on-surface-variant hover:text-text-primary hover:bg-surface-overlay/60 transition-colors whitespace-nowrap" href="certifications.html" id="nav-credentials">Credentials</a>
+        <a class="nav-link px-2 py-1 2xl:px-2.5 2xl:py-1.5 font-label-mono-sm text-[11px] 2xl:text-label-mono-sm uppercase text-on-surface-variant hover:text-text-primary hover:bg-surface-overlay/60 transition-colors whitespace-nowrap" href="reviews.html" id="nav-reviews">Peer Reviews</a>
         <a class="nav-link px-2 py-1 2xl:px-2.5 2xl:py-1.5 font-label-mono-sm text-[11px] 2xl:text-label-mono-sm uppercase text-on-surface-variant hover:text-text-primary hover:bg-surface-overlay/60 transition-colors whitespace-nowrap" href="contact.html" id="nav-contact">Contact</a>
       </nav>
 
@@ -239,10 +251,6 @@
         <span>Research</span>
         <svg class="w-4 h-4 text-text-dim shrink-0 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
       </a>
-      <a class="mobile-nav-link flex items-center justify-between px-3.5 py-2.5 rounded-DEFAULT font-label-mono-sm text-[13px] uppercase text-text-primary hover:text-primary hover:bg-surface-overlay/80 border border-transparent transition-colors" href="reviews.html" onclick="window.__handleNavClick('reviews.html', event)">
-        <span>Peer Reviews</span>
-        <svg class="w-4 h-4 text-text-dim shrink-0 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-      </a>
       <a class="mobile-nav-link flex items-center justify-between px-3.5 py-2.5 rounded-DEFAULT font-label-mono-sm text-[13px] uppercase text-text-primary hover:text-primary hover:bg-surface-overlay/80 border border-transparent transition-colors" href="index.html#experience" onclick="window.__handleNavClick('index.html#experience', event)">
         <span>Experience</span>
         <svg class="w-4 h-4 text-text-dim shrink-0 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
@@ -261,6 +269,10 @@
       </a>
       <a class="mobile-nav-link flex items-center justify-between px-3.5 py-2.5 rounded-DEFAULT font-label-mono-sm text-[13px] uppercase text-text-primary hover:text-primary hover:bg-surface-overlay/80 border border-transparent transition-colors" href="certifications.html" onclick="window.__handleNavClick('certifications.html', event)">
         <span>Credentials</span>
+        <svg class="w-4 h-4 text-text-dim shrink-0 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+      </a>
+      <a class="mobile-nav-link flex items-center justify-between px-3.5 py-2.5 rounded-DEFAULT font-label-mono-sm text-[13px] uppercase text-text-primary hover:text-primary hover:bg-surface-overlay/80 border border-transparent transition-colors" href="reviews.html" onclick="window.__handleNavClick('reviews.html', event)">
+        <span>Peer Reviews</span>
         <svg class="w-4 h-4 text-text-dim shrink-0 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
       </a>
       <a class="mobile-nav-link flex items-center justify-between px-3.5 py-2.5 rounded-DEFAULT font-label-mono-sm text-[13px] uppercase text-text-primary hover:text-primary hover:bg-surface-overlay/80 border border-transparent transition-colors" href="contact.html" onclick="window.__handleNavClick('contact.html', event)">
