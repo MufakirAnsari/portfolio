@@ -1,0 +1,31 @@
+{
+  "$schema": "https://agenticresourcediscovery.org/schemas/v1/ai-catalog.json",
+  "name": "Mufakir Ansari AI Research Portfolio",
+  "description": "Scientific AI, High-Performance Computing, Quantum Circuit Knitting, and Machine Learning Portfolio.",
+  "url": "https://www.mufakir.live",
+  "provider": {
+    "name": "Mufakir Ansari",
+    "email": "mufakirqamaransari@gmail.com",
+    "url": "https://www.mufakir.live"
+  },
+  "resources": [
+    {
+      "name": "Publications & Research Catalog",
+      "type": "dataset",
+      "url": "https://www.mufakir.live/#research",
+      "description": "10 peer-reviewed & submitted papers across HPC, genomics, time-series, and quantum computing."
+    },
+    {
+      "name": "Verified Peer Reviews",
+      "type": "documentation",
+      "url": "https://www.mufakir.live/reviews.html",
+      "description": "47 verified peer reviews for Elsevier EAAI and IEEE journals."
+    },
+    {
+      "name": "llms.txt Manifest",
+      "type": "documentation",
+      "url": "https://www.mufakir.live/llms.txt",
+      "description": "Machine-readable markdown summary for Large Language Models and AI agents."
+    }
+  ]
+}

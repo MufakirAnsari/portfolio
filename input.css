@@ -11,5 +11,14 @@
   #mobile-drawer { background-color: #0b1120 !important; }
   #mobile-drawer.hidden { display: none !important; }
   #research, #experience, #stack, #catalog, #presentations, #reviews { scroll-margin-top: 5rem; }
+  .material-symbols-outlined {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    overflow: hidden;
+    line-height: 1;
+    vertical-align: -0.125em;
+    flex-shrink: 0;
+  }
 }
 

@@ -1,0 +1,38 @@
+# Mufakir Ansari - AI Researcher & Data Scientist
+
+> Data scientist and AI researcher building scientific AI systems across High-Performance Computing (HPC), quantum circuit knitting, self-supervised representation learning, genomics, and time-series forecasting. Graduate researcher at The University of Toledo with 10 accepted/submitted peer-reviewed papers and 47 verified peer reviews (43 Elsevier EAAI + IEEE).
+
+## Key Information
+- Name: Mufakir Ansari (Mufakir Qamar Ansari)
+- Location: Toledo, OH, United States
+- Email: mufakirqamaransari@gmail.com
+- Website: https://www.mufakir.live/
+- GitHub: https://github.com/MufakirAnsari
+- Google Scholar: https://scholar.google.com/citations?user=8gNxoaAAAAAJ&hl=en
+- LinkedIn: https://www.linkedin.com/in/mufakir/
+
+## Core Research Areas
+- High-Performance Computing & Quantum Circuit Knitting: GPU-accelerated tensor network simulation, dynamic wire-cutting heuristics, and distributed quantum simulation via CUDA/C++ and Qiskit.
+- Self-Supervised Learning & Representation: Computational pathology foundation models trained on 277,000+ WSIs using SimCLR and DINO with distributed PyTorch.
+- Genomic Feature Selection & HDLSS: Author of DDFF (Distributional Discriminative Feature Filtering) operating in linear O(pn) time with rigorous Total Variation equivalence.
+- Deep Time-Series & Physics-Informed ML: Multi-horizon spatio-temporal traffic and weather forecasting on edge sensors and OSC supercomputing clusters.
+
+## Selected Publications
+- Distributional Discriminative Feature Filtering: A Scalable Framework for High-Dimensional Low-Sample-Size Biomedical Data - 2026 25th IEEE International Conference on Machine Learning and Applications (ICMLA), DOI: 10.1109/ICMLA69890.2026.00030
+- Scalable Quantum Circuit Knitting via Dynamic Wire-Cutting Heuristics - Submitted to ACM Transactions on Quantum Computing (TOGS)
+- Self-Supervised Representation Learning for High-Resolution Histopathology Whole Slide Images - 2025 IEEE International Conference on Bioinformatics and Biomedicine (BIBM)
+- Spatio-Temporal Graph Neural Networks for Multi-Horizon Highway Traffic State Forecasting - IEEE Transactions on Intelligent Transportation Systems (T-ITS)
+
+## Editorial & Peer Review
+- 47 Verified Peer Reviews across high-impact international journals.
+- 43 reviews for Elsevier Engineering Applications of Artificial Intelligence (EAAI, Impact Factor: 7.5).
+- 4 reviews for IEEE transactions and conferences.
+
+## Portfolio Pages
+- [Overview](https://www.mufakir.live/): Complete research portfolio, interactive paper prospectus, and live KPIs.
+- [CV & Biography](https://www.mufakir.live/bio.html): Academic background, education, and technical trajectory.
+- [Peer Reviews](https://www.mufakir.live/reviews.html): Complete verified reviewer certificate gallery and journal telemetry.
+- [Credentials & Certifications](https://www.mufakir.live/certifications.html): Professional certifications, awards, and degrees.
+- [Hire Me](https://www.mufakir.live/hire_me.html): Full-time AI research and engineering opportunities.
+- [Freelance Consulting](https://www.mufakir.live/freelance.html): Enterprise ML and scientific AI advisory.
+- [Contact](https://www.mufakir.live/contact.html): Direct research collaboration and inquiry dispatch.
