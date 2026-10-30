@@ -2,7 +2,7 @@
 // FUTURE UPDATES: You can update your Google Scholar citations count right here
 // (e.g. change "50+" to "60+") or directly in index.html at line 929.
 window.PORTFOLIO_METRICS = {
-  citations: "55",
+  citations: "57",
   hIndex: "3",
   i10Index: "1"
 };
